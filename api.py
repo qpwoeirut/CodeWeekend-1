@@ -88,10 +88,10 @@ def update_display_name(new_name):
     return requests.post(url, json=data, headers=headers).content
 
 
-show(get_scoreboard())
+#show(get_scoreboard())
 #show(get_submission_info(427))
-show(get_team_dashboard())
-show(get_team_submissions())
+#show(get_team_dashboard())
+#show(get_team_submissions())
 #download_submission(476)
-print(get_test(1))
+#print(get_test(1))
 #update_display_name('Test 123')

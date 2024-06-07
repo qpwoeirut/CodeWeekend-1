@@ -40,7 +40,6 @@ signed main() {
     cin.tie(NULL);
     string s;cin >> s;
     cout << s << nl;
-    cout << "Hello World!\n";
     return 0;
 }
 

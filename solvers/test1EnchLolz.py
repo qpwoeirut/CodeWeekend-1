@@ -1,3 +1,3 @@
 
 
-print("testing")
+print(input())
