@@ -31,7 +31,7 @@ class bcolors:
 ...
 """
 
-NUM_TESTCASES = 5
+NUM_TESTCASES = 25
 
 GPP_PATH = "g++-14"
 
@@ -54,15 +54,15 @@ def run_testcase(solution, testcase):
     fileName = pathlib.Path(solution).name
     #print(f"Running {fileName} on testcase {testcase}")
     if fileExt == '.py':
-        #os.system(f"cat testcases/tc{testcase}.txt | python3 {solution} > output/{fileName}_OUT_TC{testcase}.txt")
-        process = subprocess.run(f"cat testcases/tc{testcase}.txt | python3 {solution} > output/{fileName}_OUT_TC{testcase}.txt", shell=True, stderr=subprocess.PIPE)
+        #os.system(f"cat heropath_inputs_day1/{format(testcase,'03')}.json | python3 {solution} > output/{fileName}_OUT_{format(testcase,'03')}.json")
+        process = subprocess.run(f"cat heropath_inputs_day1/{format(testcase,'03')}.json | python3 {solution} > output/{fileName}_OUT_{format(testcase,'03')}.json", shell=True, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
             print(f"Runtime error: {stderr}")
             sys.exit(1)
     elif fileExt == '.cpp':
-        #os.system(f"./compile-dump{fileName} < testcases/tc{testcase}.txt > output/{fileName}_OUT_TC{testcase}.txt")
-        process = subprocess.run(f"./compile-dump/{fileName} < testcases/tc{testcase}.txt > output/{fileName}_OUT_TC{testcase}.txt", shell=True, stderr=subprocess.PIPE)
+        #os.system(f"./compile-dump{fileName} < heropath_inputs_day1/{format(testcase,'03')}.json > output/{fileName}_OUT_{format(testcase,'03')}.json")
+        process = subprocess.run(f"./compile-dump/{fileName} < heropath_inputs_day1/{format(testcase,'03')}.json > output/{fileName}_OUT_{format(testcase,'03')}.json", shell=True, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
             print(f"Runtime error: {stderr}")
@@ -72,7 +72,7 @@ def run_testcase(solution, testcase):
         print(f"Invalid file extension: {fileExt}")
         sys.exit(1)
 
-    pass
+    api.submit(testcase, open(f"output/{fileName}_OUT_{format(testcase,'03')}.json").read())
 
 
 def parse_testcase(testcase):
@@ -104,7 +104,7 @@ def main():
     args = parser.parse_args()
 
     #assert current directory is root of the project
-    if not os.path.exists("testcases"):
+    if not os.path.exists("api.py"):
         print("please run this script from the root of the project directory")
         sys.exit(1)
 
@@ -122,7 +122,7 @@ def main():
         #print("hi", i)
         print(colors[i%len(colors)], end="")
         #print(bcolors.RED)
-        for j in tqdm.tqdm(range(args.trials), desc=f"Testcase {tc}"):
+        for j in tqdm.tqdm(range(args.trials), desc=f"Testcase {format(tc,'03')}"):
             #print(colors[j%len(colors)], end="", flush=True)
             run_testcase(args.solution, tc)
         #print(bcolors.ENDC, end="")
