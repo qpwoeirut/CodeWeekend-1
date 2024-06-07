@@ -1,5 +1,6 @@
 import json
 import sys
+import random
 
 
 tc = json.loads(sys.stdin.read())
@@ -50,33 +51,32 @@ def max_step(start, end, speed):
     return best_point
 
 
-def get_closest_monster(monsters, pos):
-    closest_monster = None
-    closest_distance = 1000000
-    for monster in monsters:
-        dist_sqr = (monster["x"] - pos[0])**2 + (monster["y"] - pos[1])**2
-        if dist_sqr < closest_distance:
-            closest_distance = dist_sqr
-            closest_monster = monster
-    return closest_monster, closest_distance
+def get_random_monster():
+    if len(monsters) == 0:
+        return None
+    return random.choice(monsters)
 
-closest_monster, closest_distance = get_closest_monster(monsters, pos)
+cur_monster = get_random_monster()
+    
 
 for z in range(turns):
     #print(pos)
-    if closest_monster is None:
+    if cur_monster is None:
         break
-    if closest_distance <= hero["base_range"]**2:
+
+    dist_sqr = (cur_monster["x"] - pos[0])**2 + (cur_monster["y"] - pos[1])**2
+
+    if dist_sqr <= hero["base_range"]**2:
         sol["moves"].append({
             "type": "attack",
-            "target_id": closest_monster["id"]
+            "target_id": cur_monster["id"]
         })
 
-        closest_monster["hp"] -= hero["base_power"]
+        cur_monster["hp"] -= hero["base_power"]
 
-        if closest_monster["hp"] <= 0:
-            monsters.remove(closest_monster)
-            closest_monster, closest_distance = get_closest_monster(monsters, pos)
+        if cur_monster["hp"] <= 0:
+            monsters.remove(cur_monster)
+            cur_monster = get_random_monster()
     
     else:
         #move towards monster integer coord with dist base_speed
@@ -84,7 +84,7 @@ for z in range(turns):
 
         #hero["base_speed"]
 
-        target_x, target_y = max_step(pos, [closest_monster["x"], closest_monster["y"]], hero["base_speed"])
+        target_x, target_y = max_step(pos, [cur_monster["x"], cur_monster["y"]], hero["base_speed"])
 
 
         sol["moves"].append({
