@@ -1,13 +1,12 @@
-from scipy.optimize import minimize, basinhopping, dual_annealing
-import numpy as np
-import random
 import json
-import sys
+
+import numpy as np
+from scipy.optimize import dual_annealing
 
 #tc = json.loads(sys.stdin.read())
 
 for randomvar in range(12, 14, 1):
-    path = f"heropath_inputs_day1/{format(randomvar,'03')}.json"
+    path = f"inputs/{format(randomvar,'03')}.json"
     def f(params):
         tc = json.loads(open(path).read())
         width = tc["width"]

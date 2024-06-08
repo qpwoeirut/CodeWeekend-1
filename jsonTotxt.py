@@ -3,8 +3,8 @@ import json
 TCS = 25
 
 for i in range(1, TCS+1):
-    data = json.load(open(f"heropath_inputs_day1/{format(i,'03')}.json"))
-    with open(f"heropath_inputs_day1/{format(i,'03')}.txt", "w") as f:
+    data = json.load(open(f"inputs/{format(i,'03')}.json"))
+    with open(f"inputs/{format(i,'03')}.txt", "w") as f:
         #f.write("hero\n")
         for k, v in data["hero"].items():
             #f.write(f"{k} {v}\n")
