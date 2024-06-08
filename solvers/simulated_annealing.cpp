@@ -1,14 +1,10 @@
 #include <bits/stdc++.h>
 
+#include "rng.cpp"
 #include "types.cpp"
 
 using namespace std;
 using pii = pair<int, int>;
-mt19937 random_gen(chrono::steady_clock::now().time_since_epoch().count());
-
-long long rnd(long long l, long long r) {
-    return uniform_int_distribution<long long>(l, r)(random_gen);
-}
 
 // TODO: do some compiler tricks to make this a constexpr on a per-test basis
 // and consider getting the inputs at compile time
@@ -23,6 +19,8 @@ const double REVERSE_CHANCE = 0.25;  // Reverse a subarray of the order.
 const double SHIFT_CHANCE = 0.25;  // Swap the locations of two subarrays in the order.
 const int MISSING_PENALTY = 10;
 
+static_assert(INSERT_CHANCE + DELETE_CHANCE + REVERSE_CHANCE + SHIFT_CHANCE == 1);
+
 Hero hero;
 Game game;
 Monster monster[MAX_N];
@@ -36,6 +34,7 @@ const int POINT_THRESHOLD = 50;
 const int INF = 1e9 + 7;
 const double PI = acos(-1);
 
+Rng rng(8);
 
 pii get_maximal_path(int x, int y, int next_monster, vector<int> monster_order, int num_steps_left, int current_gold)
 {
@@ -44,7 +43,7 @@ pii get_maximal_path(int x, int y, int next_monster, vector<int> monster_order, 
     
     for (int i = 0; i < POINT_THRESHOLD; i++)
     {
-        int theta = rnd(0, 359);
+        int theta = rng.next_int(360);
         pii final_point = {monster[monster_order[next_monster]].x + hero.get_range(hero.level) * cos((double)theta * PI/180), monster[monster_order[next_monster]].y + hero.get_range(hero.level) * sin((double)theta * PI/180)};
         //calculate the number of moves necessary to get to that point and kill the monster
         int necessary_moves = get_moves_between({x,y}, final_point, hero.get_speed(hero.level)) + (monster[monster_order[next_monster]].hp + hero.get_power(hero.level) - 1)/hero.get_power(hero.level);
@@ -89,10 +88,23 @@ pii calculate_order_score(const vector<int>& order)
 
 vector<Action> recover_moves(const vector<int>& order);
 
-// FIXME: write mutate(order) and rng() functions
+vector<int> mutate(vector<int> order) {
+    if (order.size() < 2) {
+        const int idx = rng.next_int(order.size() + 1);
 
-vector<int> mutate(vector<int> order);
-int rng();
+    }
+
+    const double choice = rng.next_double();
+    if (choice < INSERT_CHANCE) {
+        const int idx = rng.next_int(order.size() + 1);
+    } else if (choice < INSERT_CHANCE + DELETE_CHANCE) {
+
+    } else if (choice < INSERT_CHANCE + DELETE_CHANCE + REVERSE_CHANCE) {
+
+    } else {
+
+    }
+}
 
 vector<Action> simulated_annealing(int iterations) {
     int best_score = 0;
@@ -100,7 +112,7 @@ vector<Action> simulated_annealing(int iterations) {
 
     vector<int> order;
     for (int i=0; i<iterations; ++i) {
-        // TODO: consider early termination if no new best is found after a while
+        // TODO: consider early termination if no new best is found after a while, also multiple attempts + signal handling for killing
         const vector<int> new_order = mutate(order);
 
         const pii new_result = calculate_order_score(new_order);
@@ -114,7 +126,7 @@ vector<Action> simulated_annealing(int iterations) {
         } else {
             const double progress = (double)(i) / iterations;
             const double temp = TEMP_START * pow(TEMP_END / TEMP_START, progress);
-            if (rng() < exp((new_score - best_score) / temp)) {
+            if (rng.next_double() < exp((new_score - best_score) / temp)) {
                 order = new_order;  // TODO: try swapping instead?
             }
         }
