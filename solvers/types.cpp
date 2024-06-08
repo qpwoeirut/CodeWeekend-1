@@ -35,4 +35,18 @@ struct Monster {
     }
 };
 
+struct Action {
+    bool is_move;
+    int a, b;
+    
+    friend std::ostream& operator<<(std::ostream& os, const Action& action) {
+        if (action.is_move) {
+            os << "move " << action.a << ' ' << action.b;
+        } else {
+            os << "attack " << action.a;
+        }
+        return os;
+    }
+};
+
 #endif // TYPES_CPP
