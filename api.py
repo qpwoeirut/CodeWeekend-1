@@ -3,13 +3,10 @@ import os
 import requests
 import time
 
-
 api_url = 'https://codeweekend.dev:3721/api/'
 files_url = 'https://codeweekend.dev:81/'
 with open('.token') as token_file:
     api_token = token_file.read().strip()
-
-print(f'Using token: {api_token}')
 
 headers = {
     'authorization': f'Bearer {api_token}'
@@ -87,11 +84,10 @@ def update_display_name(new_name):
     }
     return requests.post(url, json=data, headers=headers).content
 
-
-#show(get_scoreboard())
-#show(get_submission_info(427))
-#show(get_team_dashboard())
-#show(get_team_submissions())
-#download_submission(476)
-#print(get_test(1))
-#update_display_name('Test 123')
+# show(get_scoreboard())
+# show(get_submission_info(427))
+# show(get_team_dashboard())
+# show(get_team_submissions())
+# download_submission(476)
+# print(get_test(1))
+# update_display_name('Test 123')
