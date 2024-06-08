@@ -27,14 +27,19 @@ Team CPCHEC's code for Code Weekend #1
     Line 12: m (number of monsters)
     Line 13-13+m-1: Monster in the form (x,y,hp,gold,exp)
 
-
-## Links
+## Contest links
 * https://codeforces.com/blog/entry/129585
 * https://codeweekend.dev/
 * https://codeweekend.dev/#/api
 * https://discord.gg/M6pG5zp3DF
 
+## Resources
+* https://bminaiev.github.io/simulated-annealing
+* https://www.ams.sunysb.edu/~jsbm/papers/tspn-jalgorithms.pdf
+* https://web.archive.org/web/20180914115909/http://psyho.gg/tco-13-marathon-finals-part-1/
+
 ## Strategies
 * Simulated Annealing: write a function that finds the optimal solution given the order in which the monsters have to be attacked, then run SA on that order
 * Monte Carlo Tree Search: run a search up to some depth, then evaluate that position by running greedy solution
 * ML magic: build an ML model that can evaluate how good a current state is
+
