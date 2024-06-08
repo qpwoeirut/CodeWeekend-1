@@ -55,28 +55,25 @@ def max_step(start, end, speed):
     maxy = max(start[1], end[1])
 
     best_point = list(start)
-    max_dist_sqr = 0
+    min_dist_sqr = (maxx - minx)**2 + (maxy - miny)**2
 
     for i in range(minx,maxx+1):
         for j in range(miny,maxy+1):
-            if (i-start[0])**2 + (j-start[1])**2 <= speed**2 and (i-start[0])**2 + (j-start[1])**2 > max_dist_sqr:
-                max_dist_sqr = (i-start[0])**2 + (j-start[1])**2
+            if (i-start[0])**2 + (j-start[1])**2 <= speed**2 and (i-end[0])**2 + (j-end[1])**2 < min_dist_sqr:
+                min_dist_sqr = (i-end[0])**2 + (j-end[1])**2
                 best_point = [i,j]
 
     return best_point
 
 
-def get_closest_monster():
-    closest_monster = None
-    closest_distance = 1000000
-    for monster in monsters:
-        dist_sqr = (monster["x"] - pos[0])**2 + (monster["y"] - pos[1])**2
-        if dist_sqr < closest_distance:
-            closest_distance = dist_sqr
-            closest_monster = monster
-    return closest_monster
+def get_almost_closest_monster():
+    monsters.sort(key=lambda x: ((x["x"] - pos[0])**2 + (x["y"] - pos[1])**2) - x["gold"]*50 - (x["exp"]*1000 if hero["level"] < 3 else  (x["exp"]*0 if hero["level"] < 6 else 0)))
+    if len(monsters) == 0:
+        return None
+    
+    return monsters[0]
 
-closest_monster = get_closest_monster()
+closest_monster = get_almost_closest_monster()
 
 def exp_cutoff():
     return 1000 + hero["level"]*(hero["level"]+1)*50
@@ -104,8 +101,7 @@ for z in range(turns):
         sol["moves"].append({
             "type": "attack",
             "target_id": closest_monster["id"],
-            "comment": f"Hero level: {hero['level']}, Hero exp: {hero['exp']}, Hero speed: {hero['speed']}, Hero power: {hero['power']}, Hero range: {hero['range']}, Monster Dist: {target_dist_sqr}, target hp: {closest_monster['hp']}, target id: {closest_monster['id']}",
-            "gold": closest_monster["gold"]
+            "comment": f"Hero level: {hero['level']}, Hero exp: {hero['exp']}, Hero speed: {hero['speed']}, Hero power: {hero['power']}, Hero range: {hero['range']}, Monster Dist: {target_dist_sqr}, target hp: {closest_monster['hp']}, target id: {closest_monster['id']}"
         })
 
         closest_monster["hp"] -= hero["power"]
@@ -113,7 +109,7 @@ for z in range(turns):
         if closest_monster["hp"] <= 0:
             monsters.remove(closest_monster)
             hero["exp"] += closest_monster["exp"]
-            closest_monster = get_closest_monster()
+            closest_monster = get_almost_closest_monster()
             update_hero()
     
     else:
