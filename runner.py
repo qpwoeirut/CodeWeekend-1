@@ -62,7 +62,7 @@ def run_testcase(solution, testcase):
             sys.exit(1)
     elif fileExt == '.cpp':
         #os.system(f"./compile-dump{fileName} < heropath_inputs_day1/{format(testcase,'03')}.json > output/{fileName}_OUT_{format(testcase,'03')}.json")
-        process = subprocess.run(f"./compile-dump/{fileName} < heropath_inputs_day1/{format(testcase,'03')}.json > output/{fileName}_OUT_{format(testcase,'03')}.json", shell=True, stderr=subprocess.PIPE)
+        process = subprocess.run(f"./compile-dump/{fileName} < heropath_inputs_day1/{format(testcase,'03')}.txt > output/{fileName}_OUT_{format(testcase,'03')}.json", shell=True, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
             print(f"Runtime error: {stderr}")
