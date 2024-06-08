@@ -11,15 +11,15 @@ using pii = pair<int, int>;
 const int MAX_N = 3000;
 
 // Parameters to tune
-const double TEMP_START = 10;
-const double TEMP_END = 0.001;
-const double INSERT_CHANCE = 0.25;  // Insert a monster in the order.
-const double DELETE_CHANCE = 0.25;  // Delete a monster from the order.
-const double REVERSE_CHANCE = 0.25;  // Reverse a subarray of the order.
-const double SHIFT_CHANCE = 0.25;  // Swap the locations of two subarrays in the order.
-const int MISSING_PENALTY = 10;
+constexpr const double TEMP_START = 10;
+constexpr const double TEMP_END = 0.001;
+constexpr const double INSERT_CHANCE = 0.25;  // Insert a monster in the order.
+constexpr const double DELETE_CHANCE = 0.25;  // Delete a monster from the order.
+constexpr const double REVERSE_CHANCE = 0.25;  // Reverse a subarray of the order.
+constexpr const double SHIFT_CHANCE = 0.25;  // Swap the locations of two subarrays in the order.
+constexpr const int MISSING_PENALTY = 10;
 
-static_assert(INSERT_CHANCE + DELETE_CHANCE + REVERSE_CHANCE + SHIFT_CHANCE == 1);
+static_assert(INSERT_CHANCE + DELETE_CHANCE + REVERSE_CHANCE + SHIFT_CHANCE == 1.0);
 
 Hero hero;
 Game game;

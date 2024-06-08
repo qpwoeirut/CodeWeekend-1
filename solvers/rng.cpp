@@ -25,7 +25,7 @@ public:
 
     int next_int(int mod) {
         assert(mod > 0);
-        return (int) ((ull) next31() * mod >> 31);
+        return (int) ((unsigned long long) next31() * mod >> 31);
     }
 
     int next_int(int min, int max) {
@@ -61,10 +61,10 @@ private:
     unsigned long long state;
 
     unsigned int next32() {
-        uint r = (uint) (state >> 59);
+        unsigned int r = (unsigned int) (state >> 59);
         state = state * MULT + INCR;
         state ^= state >> 18;
-        uint t = (uint) (state >> 27);
+        unsigned int t = (unsigned int) (state >> 27);
         return t >> r | t << (-r & 31);
     }
 
