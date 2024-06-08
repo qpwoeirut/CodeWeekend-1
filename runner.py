@@ -41,7 +41,8 @@ def compile_solution(solution):
     assert pathlib.Path(solution).suffix == '.cpp'
 
     file_name = pathlib.Path(solution).name
-    process = subprocess.run([GPP_PATH, *FLAGS, solution, "-o", f"compile-dump/{file_name}"], stderr=subprocess.PIPE)
+    pathlib.Path("build").mkdir(exist_ok=True)
+    process = subprocess.run([GPP_PATH, *FLAGS, solution, "-o", f"build/{file_name}"], stderr=subprocess.PIPE)
     stderr = process.stderr.decode('utf-8')
     if stderr:
         print(f"Compilation error: {stderr}")
@@ -94,7 +95,7 @@ def run_testcase(solution, testcase):
         input_txt = f"heropath_inputs_day1/{format(testcase, '03')}.txt"
         output_txt = f"output/{file_name}_OUT_{format(testcase, '03')}.txt"
         with open(input_txt) as fin, open(output_txt, 'w') as fout:
-            process = subprocess.run([f"./compile-dump/{file_name}"], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
+            process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
             print(f"Runtime error: {stderr}")
