@@ -43,3 +43,4 @@ Team CPCHEC's code for Code Weekend #1
 * Monte Carlo Tree Search: run a search up to some depth, then evaluate that position by running greedy solution
 * ML magic: build an ML model that can evaluate how good a current state is
 
+* For optimal solution given order, we can try simulated annealing again on the locations that we move to. We can also try some sort of set intersection thing where we find the longest prefix that can all be reached from one location
