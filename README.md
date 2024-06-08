@@ -11,6 +11,23 @@ Team CPCHEC's code for Code Weekend #1
 - Use API to graph the progress of the competition 
 - ~~Create team name animation with the API~~ ![trust](https://cdn.discordapp.com/emojis/1204640543053709454.webp?size=48&quality=lossless&name=trust)
 
+## JsonToTxt input format
+
+    Line 01: base_speed
+    Line 02: base_power
+    Line 03: base_range
+    Line 04: level_speed_coef
+    Line 05: level_power_coef
+    Line 06: level_range_coef
+    Line 07: start_x
+    Line 08: start_y
+    Line 09: width
+    Line 10: height
+    Line 11: num_turns
+    Line 12: m (number of monsters)
+    Line 13-13+m-1: Monster in the form (x,y,hp,gold,exp)
+
+
 ## Links
 * https://codeforces.com/blog/entry/129585
 * https://codeweekend.dev/
