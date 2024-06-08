@@ -17,3 +17,7 @@ Team CPCHEC's code for Code Weekend #1
 * https://codeweekend.dev/#/api
 * https://discord.gg/M6pG5zp3DF
 
+## Strategies
+* Simulated Annealing: write a function that finds the optimal solution given the order in which the monsters have to be attacked, then run SA on that order
+* Monte Carlo Tree Search: run a search up to some depth, then evaluate that position by running greedy solution
+* ML magic: build an ML model that can evaluate how good a current state is
