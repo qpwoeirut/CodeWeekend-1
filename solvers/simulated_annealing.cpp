@@ -4,6 +4,11 @@
 
 using namespace std;
 using pii = pair<int, int>;
+mt19937 random_gen(chrono::steady_clock::now().time_since_epoch().count());
+
+long long rnd(long long l, long long r) {
+    return uniform_int_distribution<long long>(l, r)(random_gen);
+}
 
 // TODO: do some compiler tricks to make this a constexpr on a per-test basis
 // and consider getting the inputs at compile time
@@ -40,9 +45,9 @@ pii get_maximal_path(int x, int y, int next_monster, vector<int> monster_order, 
     for (int i = 0; i < POINT_THRESHOLD; i++)
     {
         int theta = rnd(0, 359);
-        pii final_point = {monster[monster_order[next_monster]].x + hero.get_range() * cos((double)theta * PI/180), monster[monster_order[next_monster]].y + hero.get_range() * sin((double)theta * PI/180)};
+        pii final_point = {monster[monster_order[next_monster]].x + hero.get_range(hero.level) * cos((double)theta * PI/180), monster[monster_order[next_monster]].y + hero.get_range(hero.level) * sin((double)theta * PI/180)};
         //calculate the number of moves necessary to get to that point and kill the monster
-        int necessary_moves = get_moves_between({x,y}, final_point, hero.get_speed()) + (monster[monster_order[next_monster]].hp + hero.get_power() - 1)/hero.get_power();
+        int necessary_moves = get_moves_between({x,y}, final_point, hero.get_speed(hero.level)) + (monster[monster_order[next_monster]].hp + hero.get_power(hero.level) - 1)/hero.get_power(hero.level);
         if (necessary_moves == best_point.first.first)
         {
             //check whether the distance to the next point is smaller
@@ -50,17 +55,15 @@ pii get_maximal_path(int x, int y, int next_monster, vector<int> monster_order, 
             {
                 continue;
             }
-            int next_distance = get_moves_between(final_point, {monsters[monster_order[next_monster + 1]].x, monsters[monster_order[next_monster + 1]].y}, hero.get_prosp_speed(monster[next_monster].exp));
+            int next_distance = get_moves_between(final_point, {monster[monster_order[next_monster + 1]].x, monster[monster_order[next_monster + 1]].y}, hero.get_prosp_speed(monster[next_monster].exp));
             if (next_distance < best_point.first.second)
             {
                 best_point = {{necessary_moves, next_distance}, final_point};
             }
-            best_point = {necessary_moves, (next_monster + 1 == (int)monster_order.size() ? -1: };
-            
         } else if (necessary_moves < best_point.first.first)
         {
             //replace the best point with this point
-            best_point = {{necessary_moves, (next_monster + 1 == (int)monster_order.size() ? -1: get_moves_between(final_point, {monsters[monster_order[next_monster + 1]].x, monsters[monster_order[next_monster + 1]].y}, hero.get_prosp_speed(monster[next_monster].exp))}, final_point};
+            best_point = {{necessary_moves, (next_monster + 1 == (int)monster_order.size() ? -1: get_moves_between(final_point, {monster[monster_order[next_monster + 1]].x, monster[monster_order[next_monster + 1]].y}, hero.get_prosp_speed(monster[next_monster].exp)))}, final_point};
         }
     }
     
@@ -81,12 +84,15 @@ pii get_maximal_path(int x, int y, int next_monster, vector<int> monster_order, 
 
 pii calculate_order_score(const vector<int>& order)
 {
-    return get_maximal_path(start_x, start_y, 0, monster_order, num_turns, 0);
+    return get_maximal_path(game.start_x, game.start_y, 0, order, game.num_turns, 0);
 }
 
 vector<Action> recover_moves(const vector<int>& order);
 
 // FIXME: write mutate(order) and rng() functions
+
+vector<int> mutate(vector<int> order);
+int rng();
 
 vector<Action> simulated_annealing(int iterations) {
     int best_score = 0;
