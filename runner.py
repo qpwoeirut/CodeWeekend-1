@@ -38,7 +38,7 @@ FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
 
 
 def compile_solution(solution):
-    assert pathlib.Path(solution).suffix == '.cpp'
+    if pathlib.Path(solution).suffix != '.cpp': return
 
     file_name = pathlib.Path(solution).name
     pathlib.Path("build").mkdir(exist_ok=True)

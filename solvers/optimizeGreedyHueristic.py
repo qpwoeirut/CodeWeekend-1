@@ -6,7 +6,7 @@ import sys
 
 #tc = json.loads(sys.stdin.read())
 
-for randomvar in range(1, 26, 1):
+for randomvar in range(3, 4, 1):
     path = f"heropath_inputs_day1/{format(randomvar,'03')}.json"
     def f(params):
         tc = json.loads(open(path).read())
@@ -85,7 +85,7 @@ for randomvar in range(1, 26, 1):
 
 
         def get_almost_closest_monster():
-            monsters.sort(key=lambda x: ((x["x"] - pos[0])**2 + (x["y"] - pos[1])**2) - x["gold"]*params[0] - (x["exp"]*params[1] if hero["level"] < 10 else  0) + x["hp"]*params[2])
+            monsters.sort(key=lambda x: ((x["x"] - pos[0])**2 + (x["y"] - pos[1])**2) - x["gold"]**params[0] - (x["exp"]*params[1] if hero["level"] < 3 else  0) + x["hp"]*params[2])
             if len(monsters) == 0:
                 return None
             
@@ -177,7 +177,7 @@ for randomvar in range(1, 26, 1):
     #print(json.dumps(sol))
 
     # try dual annealing
-    res = dual_annealing(f, bounds=[(0,100),(0,300),(0,100)], maxiter=400)
+    res = dual_annealing(f, bounds=[(0,5),(0,50),(0,50)], maxiter=400)
     #print(res)
     print("tc = ",randomvar)
     print("params = ",list(res.x))
