@@ -31,7 +31,7 @@ class bcolors:
 ...
 """
 
-NUM_TESTCASES = 25
+NUM_TESTCASES = 50
 
 GPP_PATH = "g++-14"
 FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
@@ -83,7 +83,7 @@ def run_testcase(solution, testcase):
     file_name = pathlib.Path(solution).name
     # print(f"Running {file_name} on testcase {testcase}")
     if file_extension == '.py':
-        input_json = f"heropath_inputs_day1/{format(testcase, '03')}.json"
+        input_json = f"inputs/{format(testcase, '03')}.json"
         output_json = f"output/{file_name}_OUT_{format(testcase, '03')}.json"
         with open(input_json) as fin, open(output_json, 'w') as fout:
             process = subprocess.run(["python3", solution], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
@@ -92,7 +92,7 @@ def run_testcase(solution, testcase):
             print(f"Runtime error: {stderr}")
             sys.exit(1)
     elif file_extension == '.cpp':
-        input_txt = f"heropath_inputs_day1/{format(testcase, '03')}.txt"
+        input_txt = f"inputs/{format(testcase, '03')}.txt"
         output_txt = f"output/{file_name}_OUT_{format(testcase, '03')}.txt"
         with open(input_txt) as fin, open(output_txt, 'w') as fout:
             process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
@@ -119,6 +119,10 @@ def parse_testcase(testcase):
     for tc in testcase:
         if tc == '0':
             return list(range(1, NUM_TESTCASES + 1))
+        elif tc == 'a':
+            tcs += list(range(1, 26))
+        elif tc == 'b':
+            tcs += list(range(26, 51))
         elif '-' in tc:
             begin, end = tc.split('-')
             assert int(begin) <= int(end), f"Invalid range: {begin}-{end}"
@@ -135,7 +139,7 @@ def main():
     parser = argparse.ArgumentParser(description='Run testcases on solutions')
 
     parser.add_argument("--testcase", "-tc", type=str, default=0,
-                        help=f"Testcase number (1-{NUM_TESTCASES}), 0 for all, begin-end for range, `,` separated for multiple testcases")
+                        help=f"Testcase number (1-{NUM_TESTCASES}), 0 for all, begin-end for range, `,` separated for multiple testcases, a for 1-25, b for 26-50")
     parser.add_argument("--solution", "-s", type=str, default=None, help="Path to solution file")
     parser.add_argument("--trials", "-t", type=int, default=1, help="Number of trials to run")
 
