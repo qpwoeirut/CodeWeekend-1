@@ -2,6 +2,8 @@
 
 #ifndef RNG_CPP
 #define RNG_CPP
+#define ull unsigned long long
+#define uint unsigned int
 
 class Rng {
 public:
