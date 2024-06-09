@@ -1,0 +1,100 @@
+Last login: Sun Jun  9 02:30:25 on ttys001
+qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % source venv/bin/activate
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 11,12,13,14,15
+Testcase 011:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 532353
+Starting attempt 2 of 12
+New best score: 539191
+Starting attempt 3 of 12
+New best score: 628349
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 011: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:07<00:00, 5707.42s/it]
+Testcase 012:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 2159
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+New best score: 2253
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 012: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:07<00:00, 5707.72s/it]
+Testcase 013:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 2342
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+New best score: 2440
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+New best score: 2462
+Starting attempt 7 of 12
+New best score: 2589
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+New best score: 2598
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 013: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:13<00:00, 5713.79s/it]
+Testcase 014:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 166730
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+New best score: 205574
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+New best score: 210025
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+New best score: 286200
+Starting attempt 12 of 12
+Testcase 014: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:23<00:00, 5723.87s/it]
+Testcase 015:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 402561
+Starting attempt 2 of 12
+New best score: 443361
+Starting attempt 3 of 12
+New best score: 447461
+Starting attempt 4 of 12
+New best score: 461664
+Starting attempt 5 of 12
+New best score: 465474
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+New best score: 469727
+Starting attempt 8 of 12
+New best score: 640323
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 015: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:36:22<00:00, 5782.40s/it]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % 

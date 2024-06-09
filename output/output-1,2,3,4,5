@@ -1,0 +1,112 @@
+Last login: Sun Jun  9 02:27:57 on ttys000
+qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % source venv/bin/activate
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % pytho3n runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 1,2,3,4,5
+zsh: command not found: pytho3n
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 1,2,3,4,5
+Testcase 001:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]In file included from /usr/local/Cellar/gcc/13.2.0/include/c++/13/algorithm:61,
+                 from /usr/local/Cellar/gcc/13.2.0/include/c++/13/x86_64-apple-darwin21/bits/stdc++.h:51,
+                 from solvers/simulated_annealing.cpp:1:
+In function 'std::__final_insertion_sort<Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}> >(Monster*, Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}>)void',
+    inlined from 'std::__sort<Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}> >(Monster*, Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}>)void' at /usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:1950:31,
+    inlined from 'std::sort<Monster*, main::{lambda(Monster const&, Monster const&)#1}>(Monster*, Monster*, main::{lambda(Monster const&, Monster const&)#1})void' at /usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:4894:18,
+    inlined from 'main' at solvers/simulated_annealing.cpp:259:9:
+/usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:1859:32: warning: array subscript 16 is outside array bounds of 'struct Monster[7]' [-Warray-bounds=]
+ 1859 |           std::__insertion_sort(__first, __first + int(_S_threshold), __comp);
+      |           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+solvers/simulated_annealing.cpp: In function 'main':
+solvers/simulated_annealing.cpp:20:9: note: at offset 512 into object 'monster' of size 224
+   20 | Monster monster[N];
+      |         ^~~~~~~
+
+Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 700
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 001: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:04<00:00, 5704.09s/it]
+Testcase 002:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 2565
+Starting attempt 2 of 12
+New best score: 2587
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+New best score: 2594
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 002: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:06<00:00, 5706.17s/it]
+Testcase 003:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 84873
+Starting attempt 2 of 12
+New best score: 86398
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+New best score: 87446
+Starting attempt 7 of 12
+New best score: 88226
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+New best score: 89781
+Starting attempt 10 of 12
+New best score: 90077
+Starting attempt 11 of 12
+New best score: 92145
+Starting attempt 12 of 12
+Testcase 003: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:44<00:00, 5744.24s/it]
+Testcase 004:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 61395
+Starting attempt 2 of 12
+New best score: 72074
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 004: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:42<00:00, 5742.71s/it]
+Testcase 005:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 3792539
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+New best score: 3817018
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+New best score: 3961025
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 005: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:38<00:00, 5738.94s/it]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % 

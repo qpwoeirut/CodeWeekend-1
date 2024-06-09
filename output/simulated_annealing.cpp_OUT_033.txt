@@ -1,0 +1,1414 @@
+move 601 816
+move 631 805
+move 652 777
+move 684 764
+move 706 737
+move 728 710
+move 750 683
+move 772 656
+move 795 630
+move 818 604
+move 839 576
+move 861 549
+move 883 522
+move 904 494
+move 930 471
+move 954 446
+move 982 425
+move 1010 404
+move 1038 383
+move 1066 362
+move 1094 341
+move 1122 320
+move 1150 299
+move 1178 278
+move 1206 257
+move 1234 236
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+attack 421
+move 1206 257
+move 1172 265
+move 1142 283
+move 1114 304
+move 1084 322
+move 1063 350
+move 1042 378
+move 1021 406
+move 1000 434
+move 979 462
+move 961 492
+move 943 522
+move 925 552
+move 907 582
+move 889 612
+move 871 642
+move 853 672
+move 835 702
+move 817 732
+move 799 762
+move 781 792
+move 763 822
+move 745 852
+move 727 882
+move 709 912
+move 691 942
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+attack 429
+move 695 908
+move 702 875
+move 711 842
+move 694 812
+move 673 784
+move 657 753
+move 636 725
+move 618 695
+move 600 665
+move 582 635
+move 564 605
+move 546 575
+move 528 545
+move 507 517
+move 486 489
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+attack 144
+move 520 495
+move 552 509
+move 584 523
+move 616 537
+move 648 551
+move 680 565
+move 712 579
+move 744 593
+move 776 607
+move 808 621
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+attack 405
+move 809 591
+move 798 558
+move 784 526
+move 776 492
+move 765 459
+move 775 426
+move 789 394
+move 797 360
+move 805 326
+move 819 294
+move 833 262
+move 847 230
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+attack 305
+move 813 232
+move 783 214
+move 761 187
+move 733 166
+move 711 139
+move 690 111
+move 669 83
+move 648 55
+move 627 27
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+attack 240
+move 641 59
+move 674 70
+move 709 70
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+attack 120
+move 724 108
+move 745 142
+move 775 169
+move 809 191
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+attack 304
+move 842 215
+move 875 239
+move 899 272
+move 908 311
+move 922 349
+move 937 387
+move 958 422
+move 975 459
+move 996 494
+move 1017 529
+move 1038 564
+move 1059 599
+move 1080 634
+move 1101 669
+move 1122 704
+attack 294
+attack 294
+attack 294
+attack 294
+attack 294
+attack 294
+attack 294
+move 1094 675
+move 1094 634
+move 1094 593
+move 1094 552
+move 1094 511
+move 1094 470
+move 1103 430
+attack 511
+attack 511
+attack 511
+attack 511
+attack 511
+attack 511
+attack 511
+attack 511
+move 1063 438
+move 1023 446
+move 996 475
+move 956 466
+move 915 466
+move 874 466
+move 833 466
+move 792 466
+move 751 466
+move 710 466
+move 669 466
+move 628 466
+move 587 466
+move 546 466
+move 505 466
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+attack 142
+move 539 481
+move 563 514
+move 585 548
+move 600 586
+move 609 626
+move 621 665
+move 630 705
+move 639 745
+move 648 785
+move 657 825
+move 666 865
+move 675 905
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+attack 427
+move 694 869
+move 721 839
+move 750 811
+move 774 778
+move 801 748
+move 825 715
+move 855 688
+move 881 657
+move 905 624
+move 929 591
+move 962 567
+move 987 535
+move 1013 504
+move 1037 471
+move 1062 439
+move 1086 406
+attack 516
+attack 516
+attack 516
+attack 516
+attack 516
+attack 516
+attack 516
+attack 516
+move 1051 418
+move 1012 430
+move 973 419
+move 941 444
+move 910 429
+move 870 434
+move 831 445
+move 792 457
+move 754 472
+move 714 481
+move 676 496
+move 636 505
+move 597 517
+move 557 526
+move 519 541
+move 481 556
+move 442 568
+move 404 583
+move 366 598
+move 326 607
+move 288 622
+move 249 634
+move 209 643
+move 169 652
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+attack 229
+move 217 652
+move 254 682
+move 277 724
+move 298 767
+move 314 812
+move 327 858
+move 340 904
+move 349 951
+move 358 998
+move 367 1045
+move 376 1092
+move 385 1139
+move 394 1186
+move 403 1233
+move 412 1280
+move 421 1327
+move 430 1374
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+attack 315
+move 430 1326
+move 446 1281
+move 465 1237
+move 474 1190
+move 490 1145
+move 499 1098
+move 512 1052
+move 528 1007
+move 547 963
+move 560 917
+move 573 871
+move 592 827
+move 605 781
+move 624 737
+move 643 693
+move 659 648
+move 675 603
+move 691 558
+move 704 512
+move 720 467
+move 739 423
+move 752 377
+move 765 331
+move 778 285
+move 797 241
+move 816 197
+move 835 153
+move 854 109
+move 873 65
+move 860 50
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 126
+attack 133
+attack 133
+attack 133
+attack 133
+attack 133
+attack 133
+attack 133
+attack 133
+attack 133
+move 878 94
+move 907 132
+move 936 170
+move 965 208
+move 994 246
+move 1023 284
+move 1054 320
+move 1083 358
+move 1112 396
+move 1141 434
+move 1170 472
+move 1199 510
+move 1229 547
+move 1258 585
+move 1290 620
+move 1328 649
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+attack 207
+move 1285 641
+move 1239 628
+move 1201 649
+move 1156 633
+move 1111 617
+move 1073 588
+move 1031 565
+move 993 536
+move 951 513
+move 909 490
+move 867 467
+move 823 448
+move 779 429
+move 735 410
+move 692 389
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+attack 0
+move 667 401
+move 636 365
+move 613 323
+move 584 285
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+attack 413
+move 584 333
+move 589 380
+move 583 427
+move 571 467
+move 555 512
+move 539 557
+move 530 604
+move 521 651
+move 512 698
+move 503 745
+move 494 792
+move 485 839
+move 476 886
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+attack 222
+move 520 867
+move 563 861
+move 610 854
+move 656 867
+move 702 880
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+attack 193
+move 683 837
+move 657 797
+move 636 754
+move 601 722
+move 565 691
+move 527 662
+move 489 633
+move 451 604
+move 413 575
+move 375 546
+move 337 517
+move 299 488
+move 261 459
+move 223 430
+move 185 401
+move 147 372
+move 109 343
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+attack 441
+move 156 369
+move 208 355
+move 258 335
+move 298 370
+move 349 387
+move 395 415
+move 447 427
+move 498 444
+move 550 458
+move 601 475
+move 653 489
+move 705 503
+move 757 517
+move 809 531
+move 861 545
+move 913 559
+move 965 573
+move 1017 587
+move 1069 601
+move 1121 615
+move 1173 629
+move 1225 643
+move 1277 657
+attack 213
+attack 213
+attack 213
+attack 213
+attack 213
+attack 213
+attack 213
+move 1228 635
+move 1202 588
+move 1171 544
+move 1145 497
+move 1117 451
+move 1095 402
+move 1071 354
+move 1043 308
+move 1015 262
+move 987 216
+move 959 170
+move 931 124
+move 903 78
+attack 127
+attack 127
+attack 127
+attack 127
+attack 127
+attack 127
+attack 127
+move 903 132
+move 923 182
+move 943 232
+move 963 282
+move 983 332
+move 997 384
+move 1011 436
+move 1025 488
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+attack 495
+move 996 523
+move 944 536
+move 891 546
+move 838 556
+move 785 566
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+attack 269
+move 792 619
+move 818 664
+move 862 695
+move 913 711
+move 963 731
+move 1014 748
+move 1064 768
+move 1114 788
+move 1164 808
+move 1213 830
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+attack 345
+move 1160 820
+move 1110 840
+move 1060 860
+move 1010 880
+move 960 900
+move 914 928
+move 864 948
+move 814 968
+move 767 994
+move 721 1022
+move 675 1050
+move 629 1078
+move 583 1106
+move 537 1134
+move 491 1162
+move 445 1190
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+attack 323
+move 469 1143
+move 491 1099
+move 522 1055
+move 550 1009
+move 580 965
+move 615 924
+move 646 880
+move 677 836
+move 708 792
+move 743 751
+move 774 707
+move 805 663
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+attack 409
+move 756 661
+move 706 680
+move 653 690
+move 600 700
+move 547 708
+move 494 718
+move 441 728
+move 388 738
+move 335 748
+move 281 748
+move 228 758
+move 175 768
+move 121 768
+move 67 768
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+attack 65
+move 119 756
+move 170 742
+move 223 746
+move 277 746
+move 331 746
+move 385 746
+move 439 746
+move 493 746
+move 547 746
+move 601 746
+move 655 746
+move 709 746
+move 763 746
+move 817 746
+move 871 746
+move 925 746
+move 979 746
+move 1033 746
+move 1087 746
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+attack 292
+move 1054 704
+move 1062 651
+move 1076 599
+move 1090 547
+move 1104 495
+move 1118 443
+attack 514
+attack 514
+attack 514
+attack 514
+attack 514
+attack 514
+attack 514
+attack 514
+move 1141 491
+move 1104 530
+move 1073 574
+move 1038 615
+move 1007 659
+move 972 700
+move 937 741
+move 902 782
+move 867 823
+move 832 864
+move 797 905
+move 762 946
+move 731 990
+move 696 1031
+move 661 1072
+move 626 1113
+move 595 1157
+move 560 1198
+move 525 1239
+attack 94
+attack 94
+attack 94
+attack 94
+attack 94
+attack 94
+attack 94
+attack 94
+attack 94
+move 551 1184
+move 598 1146
+move 622 1090
+move 669 1052
+move 723 1024
+move 764 979
+move 810 939
+move 856 899
+move 902 859
+move 948 819
+move 997 783
+move 1043 743
+move 1089 703
+move 1138 667
+move 1187 631
+move 1236 595
+move 1285 559
+move 1334 523
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+attack 261
+move 1275 538
+move 1215 549
+move 1160 523
+move 1107 493
+move 1054 463
+move 1005 427
+move 952 397
+move 903 361
+move 850 331
+move 797 301
+move 744 271
+move 691 241
+move 638 211
+move 585 181
+move 532 151
+move 479 121
+move 426 91
+move 373 61
+attack 115
+attack 115
+attack 115
+attack 115
+attack 115
+attack 115
+attack 115
+move 401 115
+move 452 148
+move 512 159
+move 573 159
+move 634 159
+attack 279
+attack 279
+attack 279
+attack 279
+attack 279
+attack 279
+attack 279
+attack 279
+move 645 218
+move 694 254
+move 743 290
+move 792 326
+move 843 359
+move 892 395
+move 943 428
+move 992 464
+move 1045 494
+move 1098 524
+move 1151 554
+move 1204 584
+move 1257 614
+move 1310 644
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+attack 206
+move 1262 681
+move 1217 722
+move 1158 728
+move 1101 749
+move 1061 795
+move 1002 808
+move 942 804
+move 881 804
+move 820 804
+move 760 793
+move 699 793
+move 639 783
+move 578 783
+move 517 783
+move 456 783
+move 395 783
+move 334 783
+move 273 783
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+attack 82
+move 332 769
+move 366 817
+move 390 873
+move 414 929
+move 435 986
+move 450 1045
+move 468 1103
+move 483 1162
+move 498 1221
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+attack 90
+move 533 1176
+move 591 1161
+move 650 1176
+move 709 1191
+move 768 1206
+move 827 1221
+move 886 1236
+move 945 1251
+move 1002 1272
+move 1059 1293
+move 1115 1317
+move 1171 1341
+move 1227 1365
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+attack 434
+move 1182 1324
+move 1126 1300
+move 1115 1240
+move 1097 1185
+move 1064 1134
+move 1034 1081
+move 1004 1028
+move 974 975
+move 944 922
+move 914 869
+move 886 815
+move 856 762
+move 826 709
+move 796 656
+move 766 603
+move 736 550
+move 706 497
+move 676 444
+move 646 391
+move 616 338
+attack 109
+attack 109
+attack 109
+attack 109
+attack 109
+attack 109
+attack 109
+attack 109
+attack 109
+move 581 297
+attack 416
+attack 416
+attack 416
+attack 416
+attack 416
+attack 416
+attack 416
+attack 416
+move 590 357
+move 579 417
+move 561 475
+move 550 535
+move 534 593
+move 524 653
+move 513 713
+move 502 773
+move 487 832
+move 472 891
+move 461 951
+move 450 1011
+move 435 1070
+move 424 1130
+move 413 1190
+attack 327
+attack 327
+attack 327
+attack 327
+attack 327
+attack 327
+move 470 1177
+move 510 1131
+move 543 1080
+move 598 1055
+move 644 1017
+move 690 977
+move 750 966
+move 810 955
+move 870 944
+move 930 933
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+attack 69
+move 926 898
+move 952 843
+move 962 783
+move 977 724
+move 1001 668
+move 1025 612
+move 1049 556
+move 1073 500
+move 1097 444
+attack 515
+attack 515
+attack 515
+attack 515
+attack 515
+attack 515
+attack 515
+move 1049 481
+move 1057 541
+move 1042 600
+move 1031 660
+move 981 694
+move 932 730
+move 886 770
+move 840 810
+move 794 850
+attack 198
+attack 198
+attack 198
+attack 198
+attack 198
+attack 198
+attack 198
+attack 198
+move 798 882
+move 838 928
+move 880 972
+move 923 1015
+move 963 1061
+move 1008 1102
+move 1051 1145
+move 1094 1188
+move 1134 1234
+move 1176 1278
+move 1218 1322
+attack 440
+attack 440
+attack 440
+move 1162 1298
+move 1105 1279
+move 1049 1255
+move 998 1222
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+attack 51
+move 943 1196
+move 886 1217
+move 831 1243
+move 775 1267
+move 719 1291
+move 663 1315
+move 607 1339
+move 551 1363
+move 495 1387
+attack 322
+attack 322
+attack 322
+attack 322
+attack 322
+attack 322
+attack 322
+attack 322
+move 491 1327
+move 473 1269
+move 437 1220
+move 416 1163
+move 390 1108
+move 366 1052
+move 342 996
+move 318 940
+move 290 886
+move 260 833
+move 232 779
+move 202 726
+move 172 673
+move 142 620
+move 112 567
+move 82 514
+move 52 461
+attack 160
+attack 160
+attack 160
+attack 160
+attack 160
+attack 160
+attack 160
+attack 160
+move 94 505
+move 145 538
+move 206 538
+move 266 530
+move 320 502
+move 376 478
+move 432 454
+move 488 430
+move 544 406
+move 600 382
+attack 2
+attack 2
+attack 2
+attack 2
+attack 2
+attack 2
+attack 2
+attack 2
+move 576 438
+move 576 499
+move 576 560
+move 565 620
+move 555 680
+move 544 740
+move 533 800
+move 522 860
+move 511 920
+move 500 980
+move 489 1040
+move 478 1100
+move 467 1160
+move 456 1220
+attack 490
+attack 490
+attack 490
+attack 490
+attack 490
+attack 490
+attack 490
+attack 490
+move 480 1164
+move 450 1111
+attack 35
+attack 35
+attack 35
+attack 35
+attack 35
+attack 35
+move 456 1056
+move 480 1000
+move 537 979
+move 594 958
+move 628 908
+move 668 862
+move 708 816
+move 748 770
+move 788 724
+move 828 678
+attack 410
+attack 410
+attack 410
+attack 410
+attack 410
+attack 410
+attack 410
+attack 410
+move 843 619
+move 904 619
+move 964 628
+move 1025 628
+move 1086 628
+move 1146 639
+move 1206 650
+move 1266 661
+attack 210
+attack 210
+attack 210
+attack 210
+attack 210
+attack 210
+attack 210
+attack 210
+move 1212 633
+move 1166 593
+move 1120 553

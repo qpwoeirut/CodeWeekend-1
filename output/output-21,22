@@ -1,0 +1,103 @@
+Last login: Sun Jun  9 02:30:27 on ttys003
+qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % source venv/bin/activate
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 21,22,23,24,25
+Testcase 021:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 316000
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+New best score: 327000
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+New best score: 330000
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 021: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:20<00:00, 5720.96s/it]
+Testcase 022:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 17576
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Runtime error, stopping.
+Testcase 022:   0%|                                                                                                                                                            | 0/1 [1:37:13<?, ?it/s]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 23,24,25      
+Testcase 023:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 27239
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Runtime error, stopping.
+Testcase 023:   0%|                                                                                                                                                            | 0/1 [1:38:01<?, ?it/s]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 22,23,24,25 
+Testcase 022:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Testcase 022:   0%|                                                                                                                                                              | 0/1 [00:16<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/qpwoeirut/CompetitiveProgramming/CodeWeekend/CodeWeekend-1/runner.py", line 182, in <module>
+    main()
+  File "/Users/qpwoeirut/CompetitiveProgramming/CodeWeekend/CodeWeekend-1/runner.py", line 177, in main
+    run_testcase(args.solution, tc, args.testcase_flag, args.debug)
+  File "/Users/qpwoeirut/CompetitiveProgramming/CodeWeekend/CodeWeekend-1/runner.py", line 105, in run_testcase
+    process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=sys.stderr)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1201, in communicate
+    self.wait()
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 22         
+Testcase 022:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 17379
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+New best score: 17430
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+New best score: 17674
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 022: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:39:48<00:00, 5988.84s/it]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % 

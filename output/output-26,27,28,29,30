@@ -1,0 +1,106 @@
+Last login: Sun Jun  9 02:30:28 on ttys004
+qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % source venv/bin/activate
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 26,27,28,29,30
+Testcase 026:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]In file included from /usr/local/Cellar/gcc/13.2.0/include/c++/13/algorithm:61,
+                 from /usr/local/Cellar/gcc/13.2.0/include/c++/13/x86_64-apple-darwin21/bits/stdc++.h:51,
+                 from solvers/simulated_annealing.cpp:1:
+In function 'std::__final_insertion_sort<Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}> >(Monster*, Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}>)void',
+    inlined from 'std::__sort<Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}> >(Monster*, Monster*, __gnu_cxx::__ops::_Iter_comp_iter<main::{lambda(Monster const&, Monster const&)#1}>)void' at /usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:1950:31,
+    inlined from 'std::sort<Monster*, main::{lambda(Monster const&, Monster const&)#1}>(Monster*, Monster*, main::{lambda(Monster const&, Monster const&)#1})void' at /usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:4894:18,
+    inlined from 'main' at solvers/simulated_annealing.cpp:259:9:
+/usr/local/Cellar/gcc/13.2.0/include/c++/13/bits/stl_algo.h:1859:32: warning: array subscript 16 is outside array bounds of 'struct Monster[7]' [-Warray-bounds=]
+ 1859 |           std::__insertion_sort(__first, __first + int(_S_threshold), __comp);
+      |           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+solvers/simulated_annealing.cpp: In function 'main':
+solvers/simulated_annealing.cpp:20:9: note: at offset 512 into object 'monster' of size 224
+   20 | Monster monster[N];
+      |         ^~~~~~~
+
+Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 1242
+Starting attempt 2 of 12
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 026: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:03<00:00, 5703.99s/it]
+Testcase 027:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 3286
+Starting attempt 2 of 12
+New best score: 3664
+Starting attempt 3 of 12
+New best score: 3734
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+New best score: 3949
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 027: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:05<00:00, 5705.64s/it]
+Testcase 028:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 36675
+Starting attempt 2 of 12
+New best score: 36830
+Starting attempt 3 of 12
+New best score: 36923
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 028: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:12<00:00, 5712.35s/it]
+Testcase 029:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 36846
+Starting attempt 2 of 12
+New best score: 41016
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 029: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:14<00:00, 5714.74s/it]
+Testcase 030:   0%|                                                                                                                                                              | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 12
+New best score: 5851529
+Starting attempt 2 of 12
+New best score: 6070496
+Starting attempt 3 of 12
+Starting attempt 4 of 12
+Starting attempt 5 of 12
+Starting attempt 6 of 12
+Starting attempt 7 of 12
+Starting attempt 8 of 12
+Starting attempt 9 of 12
+Starting attempt 10 of 12
+Starting attempt 11 of 12
+Starting attempt 12 of 12
+Testcase 030: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [1:35:42<00:00, 5742.80s/it]
+(venv) qpwoeirut@Stanleys-MBP-3 CodeWeekend-1 % 

@@ -1,12 +1,12 @@
 attack 3
-move 56 45
-move 48 39
-move 48 29
+move 72 53
+attack 1
+move 66 45
+move 58 39
+move 50 34
+move 44 26
 move 40 24
-attack 5
-attack 5
-attack 4
-attack 4
 attack 0
 attack 0
-move 40 34
+attack 4
+attack 4

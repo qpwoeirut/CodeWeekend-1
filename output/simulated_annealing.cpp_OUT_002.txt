@@ -14,32 +14,31 @@ attack 1
 attack 1
 attack 1
 attack 1
-move 44 50
+move 41 41
 attack 2
 attack 2
 attack 2
-move 56 59
+attack 10
+attack 10
+move 55 46
+move 62 59
+move 71 71
+attack 7
+attack 7
 attack 19
 attack 19
 attack 19
-move 70 62
-move 84 67
+attack 20
+attack 20
+move 84 56
+move 101 46
+attack 18
+attack 18
 attack 4
-attack 20
-attack 20
-attack 20
-move 90 48
-attack 18
-attack 18
-move 104 57
-attack 7
-attack 7
-move 123 63
-attack 17
-attack 17
+move 121 46
 attack 12
 attack 12
-move 140 45
+move 142 45
 attack 16
 attack 16
 attack 16
@@ -49,7 +48,8 @@ attack 21
 attack 21
 attack 21
 attack 21
-move 160 60
+move 157 65
+attack 17
+attack 17
 attack 14
 attack 14
-attack 6
