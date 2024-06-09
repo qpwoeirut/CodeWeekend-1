@@ -87,7 +87,7 @@ pii calculate_order_score(const array<int, N>& order) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             turns += (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
-            if (turns >= game.num_turns) return pii(gold, order.size() - i);
+            if (turns > game.num_turns) return pii(gold, order.size() - i);
 
             gold += monster[order[i]].gold;
             hero.add_exp(monster[order[i]].exp);
