@@ -144,7 +144,7 @@ def parse_testcase(testcase):
 def main():
     parser = argparse.ArgumentParser(description='Run testcases on solutions')
 
-    parser.add_argument("--testcase", "-tc", type=str, default=0,
+    parser.add_argument("--testcase", "-tc", type=str, default='0',
                         help=f"Testcase number (1-{NUM_TESTCASES}), 0 for all, begin-end for range, `,` separated for multiple testcases, a for 1-25, b for 26-50")
     parser.add_argument("--solution", "-s", type=str, default=None, help="Path to solution file")
     parser.add_argument("--trials", "-t", type=int, default=1, help="Number of trials to run")
