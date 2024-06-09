@@ -1,0 +1,55 @@
+move 12 45
+move 21 44
+attack 15
+attack 15
+move 29 50
+attack 11
+attack 11
+attack 11
+attack 11
+attack 11
+attack 1
+attack 1
+attack 1
+attack 1
+attack 1
+attack 1
+move 44 50
+attack 2
+attack 2
+attack 2
+move 56 59
+attack 19
+attack 19
+attack 19
+move 70 62
+move 84 67
+attack 4
+attack 20
+attack 20
+attack 20
+move 90 48
+attack 18
+attack 18
+move 104 57
+attack 7
+attack 7
+move 123 63
+attack 17
+attack 17
+attack 12
+attack 12
+move 140 45
+attack 16
+attack 16
+attack 16
+attack 16
+attack 16
+attack 21
+attack 21
+attack 21
+attack 21
+move 160 60
+attack 14
+attack 14
+attack 6

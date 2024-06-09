@@ -182,18 +182,22 @@ array<int, N> mutate(array<int, N> order, const int n_used) {  // pass in a copy
     return order;
 }
 
-vector<Action> simulated_annealing(int attempts, int iterations) {
+//vector<Action> simulated_annealing(const int attempts, const int iterations) {
+vector<Action> simulated_annealing(const int attempts, const chrono::milliseconds time_limit) {
     int best_score = 0;
     array<int, N> best_order;
 
     for (int attempt=0; attempt<attempts; ++attempt) {
         cerr << "Starting attempt " << attempt + 1 << " of " << attempts << endl;
+        const chrono::time_point start_time = chrono::steady_clock::now();
+
         int cur_score = 0;
         array<int, N> cur_order, order;
         for (int i=0; i<game.num_monsters; ++i) order[i] = i;
 
         int n_used = 1;
-        for (int i=0; i<iterations; ++i) {
+        //for (int i=0; i<iterations; ++i) {
+        while (chrono::steady_clock::now() - start_time < time_limit) {
             // TODO: consider early termination if no new best is found after a while, signal handling for killing
             const array<int, N> new_order = mutate(order, n_used);
 
@@ -208,7 +212,8 @@ vector<Action> simulated_annealing(int attempts, int iterations) {
 
                 //cerr << "New current score: " << cur_score << endl;
             } else {
-                const double progress = (double)(i) / iterations;
+                //const double progress = (double)(i) / iterations;
+                const double progress = (chrono::steady_clock::now() - start_time) / time_limit;
                 const double temp = TEMP_START * pow(TEMP_END / TEMP_START, progress);
                 if (rng.next_double() < exp((new_score - cur_score) / temp)) {
                     order = new_order;  // TODO: try swapping instead?
@@ -246,8 +251,9 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(10, 100000);
+    const vector<Action> answer = simulated_annealing(10, 10s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
 }
+
