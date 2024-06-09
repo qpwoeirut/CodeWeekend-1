@@ -76,14 +76,14 @@ void calculate_dist() {
     }
 }
 
-pii calculate_order_score(const vector<int>& order) {
+pii calculate_order_score(const array<int, N>& order) {
     hero.reset();
 
     int x = game.start_x, y = game.start_y;
     int turns = 0;
     int gold = 0;
     int i = 0;
-    while (i < (int)order.size()) {
+    while (i < game.num_monsters) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             turns += (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
@@ -117,14 +117,14 @@ pii calculate_order_score(const vector<int>& order) {
     return pii(gold, 0);
 }
 
-vector<Action> recover_actions(const vector<int>& order) {
+vector<Action> recover_actions(const array<int, N>& order) {
     hero.reset();
 
     int x = game.start_x, y = game.start_y;
     vector<Action> actions;
     int gold = 0;
     int i = 0;
-    while (i < (int)order.size()) {
+    while (i < game.num_monsters) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             for (int p=0; p<monster[order[i]].hp; p += hero.get_power()) actions.emplace_back("attack", order[i]);
@@ -162,10 +162,10 @@ vector<Action> recover_actions(const vector<int>& order) {
 }
 
 Rng rng(8);
-vector<int> mutate(vector<int> order, const int n_used) {  // pass in a copy to mutate
+array<int, N> mutate(array<int, N> order, const int n_used) {  // pass in a copy to mutate
     int idx1 = rng.next_int(n_used);
-    int idx2 = rng.next_int(order.size());
-    while (idx1 == idx2) idx2 = rng.next_int(order.size());
+    int idx2 = rng.next_int(game.num_monsters);
+    while (idx1 == idx2) idx2 = rng.next_int(game.num_monsters);
     if (idx1 > idx2) swap(idx1, idx2);
 
     const double choice = rng.next_double();
@@ -174,7 +174,7 @@ vector<int> mutate(vector<int> order, const int n_used) {  // pass in a copy to 
             swap(order[idx1 + i], order[idx2 - i]);
         }
     } else {
-        const int len = rng.next_int(min(idx2 - idx1, (int)(order.size()) - idx2)) + 1;
+        const int len = rng.next_int(min(idx2 - idx1, game.num_monsters - idx2)) + 1;
         for (int i=0; i<len; ++i) {
             swap(order[idx1 + i], order[idx2 + i]);
         }
@@ -184,21 +184,18 @@ vector<int> mutate(vector<int> order, const int n_used) {  // pass in a copy to 
 
 vector<Action> simulated_annealing(int attempts, int iterations) {
     int best_score = 0;
-    vector<int> best_order;
+    array<int, N> best_order;
 
     for (int attempt=0; attempt<attempts; ++attempt) {
         cerr << "Starting attempt " << attempt + 1 << " of " << attempts << endl;
         int cur_score = 0;
-        vector<int> cur_order;
-
-        vector<int> order(game.num_monsters);
-        order.shrink_to_fit();
+        array<int, N> cur_order, order;
         for (int i=0; i<game.num_monsters; ++i) order[i] = i;
 
         int n_used = 1;
         for (int i=0; i<iterations; ++i) {
             // TODO: consider early termination if no new best is found after a while, signal handling for killing
-            const vector<int> new_order = mutate(order, n_used);
+            const array<int, N> new_order = mutate(order, n_used);
 
             const pii new_result = calculate_order_score(new_order);
             const int new_score = new_result.first;
