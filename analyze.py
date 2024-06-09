@@ -76,3 +76,8 @@ with open("solvers/limits.cpp", 'w') as fout:
 
 # for i, test in enumerate(tests):
 #     print(i, test["width"] * test["height"] * len(test["monsters"]))
+
+monsters = [m for m in tests[36 - 1]["monsters"] if m['hp'] < 100000 and m['y'] > 800]
+monsters.sort(key=lambda m: m['x'])
+for m in monsters:
+    print(m)
