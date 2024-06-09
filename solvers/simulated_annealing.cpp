@@ -13,8 +13,6 @@ constexpr const double TEMP_END = 0.001;
 constexpr const double REVERSE_CHANCE = 0.5;  // Reverse a subarray of the order.
 constexpr const double SHIFT_CHANCE = 0.5;  // Swap the locations of two subarrays in the order.
 
-constexpr const int MAX_LEVEL = 25;  // Only tests #36 and #37 are theoretically higher and those are probably not reachable.
-
 static_assert(REVERSE_CHANCE + SHIFT_CHANCE == 1.0);
 
 Hero hero;
@@ -265,7 +263,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(10, 10s);
+    const vector<Action> answer = simulated_annealing(20, 300s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }

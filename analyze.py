@@ -26,6 +26,22 @@ for i, test in enumerate(tests):
     limits_code.append(f"constexpr const int W = {test['width']};")
     limits_code.append(f"constexpr const int H = {test['height']};")
 
+    exp = [m['exp'] for m in test["monsters"]]
+    exp.sort(reverse=True)
+
+    max_exp = sum(exp[:test["num_turns"]])
+    level_cost = 0
+    max_level = 0
+    for level in range(1, 10000):
+        incremental_cost = 1000 + level * (level - 1) * 50
+        level_cost += incremental_cost
+        if max_exp < level_cost:
+            break
+
+        max_level = level
+
+    limits_code.append(f"constexpr const int MAX_LEVEL = {max_level};")
+
     # hero = test['hero']
     # hero_params = [hero['base_speed'], hero['base_power'], hero['base_range'], hero['level_speed_coeff'],
     #                hero['level_power_coeff'], hero['level_range_coeff']]
@@ -51,24 +67,12 @@ limits_code.append("#else")
 limits_code.append(f"constexpr const int N = {max_n};")
 limits_code.append(f"constexpr const int W = {max_width};")
 limits_code.append(f"constexpr const int H = {max_height};")
+limits_code.append(f"constexpr const int MAX_LEVEL = 25;")
 limits_code.append("#endif // TESTCASE")
 limits_code.append("#endif // LIMITS_CPP")
 
 with open("solvers/limits.cpp", 'w') as fout:
     fout.write('\n'.join(limits_code))
-
-for i, test in enumerate(tests):
-    total_exp = sum(map(lambda m: m["exp"], test["monsters"]))
-    print(len(test["monsters"]), total_exp)
-
-    level_cost = 0
-    for level in range(1, 10000):
-        incremental_cost = 1000 + level * (level - 1) * 50
-        level_cost += incremental_cost
-        if total_exp < level_cost:
-            print("Max level:", level - 1)
-            break
-    print()
 
 # for i, test in enumerate(tests):
 #     print(i, test["width"] * test["height"] * len(test["monsters"]))
