@@ -210,7 +210,7 @@ int main() {
 
     cerr << "Finished reading input." << endl;
 
-    const vector<Action> answer = simulated_annealing(5, 10s);
+    const vector<Action> answer = simulated_annealing(10, 30s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
