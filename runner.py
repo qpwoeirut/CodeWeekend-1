@@ -38,10 +38,11 @@ OPT_FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
 DEBUG_FLAGS = ["-Wall", "-fsanitize=address,undefined,signed-integer-overflow", "-ftrapv"]
 
 
-def compile_solution(solution, is_debug=False):
-    if pathlib.Path(solution).suffix != '.cpp': return
+def compile_solution(solution, additional_flags=None, is_debug=False):
+    if pathlib.Path(solution).suffix != '.cpp':
+        return
 
-    flags = DEBUG_FLAGS if is_debug else OPT_FLAGS
+    flags = (DEBUG_FLAGS if is_debug else OPT_FLAGS) + (additional_flags or [])
 
     file_name = pathlib.Path(solution).name
     pathlib.Path("build").mkdir(exist_ok=True)
@@ -83,7 +84,7 @@ def convert_txt_to_json(input_txt: str, output_json: str) -> None:
         fout.write(json.dumps(resp))
 
 
-def run_testcase(solution, testcase):
+def run_testcase(solution, testcase, compile_per_testcase=False, is_debug=False):
     file_extension = pathlib.Path(solution).suffix
     file_name = pathlib.Path(solution).name
     # print(f"Running {file_name} on testcase {testcase}")
@@ -96,6 +97,8 @@ def run_testcase(solution, testcase):
             print("Runtime error, stopping.")
             sys.exit(1)
     elif file_extension == '.cpp':
+        if compile_per_testcase:
+            compile_solution(solution, additional_flags=[f"-DTESTCASE={testcase}"], is_debug=is_debug)
         input_txt = f"inputs/{format(testcase, '03')}.txt"
         output_txt = f"output/{file_name}_OUT_{format(testcase, '03')}.txt"
         with open(input_txt) as fin, open(output_txt, 'w') as fout:
@@ -146,6 +149,8 @@ def main():
     parser.add_argument("--solution", "-s", type=str, default=None, help="Path to solution file")
     parser.add_argument("--trials", "-t", type=int, default=1, help="Number of trials to run")
     parser.add_argument("--debug", type=bool, default=False, help="Use C++ debug flags")
+    parser.add_argument("--testcase-flag", "-c", type=bool, default=False,
+                        help="Add the TESTCASE flag when compiling")
 
     args = parser.parse_args()
 
@@ -158,7 +163,8 @@ def main():
         print("Solution file not provided")
         sys.exit(1)
 
-    compile_solution(args.solution, args.debug)
+    if not args.testcase_flag:
+        compile_solution(args.solution, args.debug)
 
     tcs = parse_testcase(args.testcase)
 
@@ -168,7 +174,7 @@ def main():
         print(colors[i % len(colors)], end="")
         for _ in tqdm.tqdm(range(args.trials), desc=f"Testcase {format(tc, '03')}"):
             # print(colors[j%len(colors)], end="", flush=True)
-            run_testcase(args.solution, tc)
+            run_testcase(args.solution, tc, args.testcase_flag, args.debug)
         # print(bcolors.ENDC, end="")
 
 
