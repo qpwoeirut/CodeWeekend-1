@@ -87,9 +87,10 @@ struct Monster {
     int id;
     int x, y;
     int hp, gold, exp;
+    int range, attack;
 
     friend std::istream& operator>>(std::istream& is, Monster& monster) {
-        is >> monster.x >> monster.y >> monster.hp >> monster.gold >> monster.exp;
+        is >> monster.x >> monster.y >> monster.hp >> monster.gold >> monster.exp >> monster.range >> monster.attack;
         return is;
     }
 };
