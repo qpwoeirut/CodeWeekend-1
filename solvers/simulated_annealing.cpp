@@ -52,8 +52,14 @@ void calculate_dist() {
         });
 
         queue<pii> q;
-        q.emplace(0, 0);
-        dist[level][0][0] = 0;
+        for (int x=0; x<W; ++x) {
+            for (int y=0; y<H; ++y) {
+                if (x * x + y * y <= square(hero.get_range(level))) {
+                    dist[level][y][x] = 0;
+                    q.emplace(y, x);
+                }
+            }
+        }
         while (q.size() > 0) {
             const pii cur = q.front(); q.pop();
             
