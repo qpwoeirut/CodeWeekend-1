@@ -143,7 +143,10 @@ vector<Action> recover_actions(const array<int, N>& order) {
             ++i;
             continue;
         }
-        const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
+        const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {bool a_ok = 0 <= x + a.second && x + a.second < W && 0 <= y + b.first && y + b.first < H;
+            bool a_ok = 0 <= x + a.second && x + a.second < W && 0 <= y + b.first && y + b.first < H;
+            bool b_ok = 0 <= x + b.second && x + b.second < W && 0 <= y + b.first && y + b.first < H;
+            if (a_ok != b_ok) return a_ok > b_ok;
             int new_exp = 0;
             for (int j=i; j<game.num_monsters; ++j) {
                 const int level = hero.get_prosp_level(new_exp);
@@ -266,7 +269,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(20, 300s);
+    const vector<Action> answer = simulated_annealing(20, 270s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
