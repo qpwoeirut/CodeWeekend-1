@@ -12,7 +12,6 @@ constexpr const double TEMP_START = 10;
 constexpr const double TEMP_END = 0.001;
 constexpr const double REVERSE_CHANCE = 0.5;  // Reverse a subarray of the order.
 constexpr const double SHIFT_CHANCE = 0.5;  // Swap the locations of two subarrays in the order.
-constexpr const int MISSING_PENALTY = 10;
 
 constexpr const int MAX_LEVEL = 25;  // Only tests #36 and #37 are theoretically higher and those are probably not reachable.
 
@@ -40,7 +39,7 @@ void calculate_dist() {
 
         for (int x=-W + 1; x < W; ++x) {
             for (int y=-H + 1; y < H; ++y) {
-                if (x * x + y * y <= square(hero.get_range(level))) reachable[level].emplace_back(y, x);
+                if (x * x + y * y <= square(hero.get_speed(level))) reachable[level].emplace_back(y, x);
             }
         }
         reachable[level].shrink_to_fit();
@@ -78,7 +77,7 @@ pii calculate_order_score(const vector<int>& order) {
     int turns = 0;
     int gold = 0;
     int i = 0;
-    while (i < order.size()) {
+    while (i < (int)order.size()) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             turns += (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
@@ -91,7 +90,7 @@ pii calculate_order_score(const vector<int>& order) {
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
             // TODO: this doesn't account for leveling up before attacking the next monster(s).
-            for (int j=i; j<order.size(); ++j) {
+            for (int j=i; j<(int)order.size(); ++j) {
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
                 const int dx_b = abs(monster[order[j]].x - (x + b.second));
@@ -119,12 +118,12 @@ vector<Action> recover_actions(const vector<int>& order) {
     vector<Action> actions;
     int gold = 0;
     int i = 0;
-    while (i < order.size()) {
+    while (i < (int)order.size()) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             for (int p=0; p<monster[order[i]].hp; p += hero.get_power()) actions.emplace_back("attack", order[i]);
-            if (actions.size() >= game.num_turns) {
-                while (actions.size() > game.num_turns) actions.pop_back();
+            if ((int)actions.size() >= game.num_turns) {
+                while ((int)actions.size() > game.num_turns) actions.pop_back();
                 return actions;
             }
 
@@ -135,7 +134,7 @@ vector<Action> recover_actions(const vector<int>& order) {
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
             // TODO: this doesn't account for leveling up before attacking the next monster(s).
-            for (int j=i; j<order.size(); ++j) {
+            for (int j=i; j<(int)order.size(); ++j) {
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
                 const int dx_b = abs(monster[order[j]].x - (x + b.second));
@@ -151,7 +150,7 @@ vector<Action> recover_actions(const vector<int>& order) {
         y += best.first;
         actions.emplace_back("move", x, y);
 
-        if (actions.size() >= game.num_turns) return actions;
+        if ((int)actions.size() >= game.num_turns) return actions;
     }
     return actions;
 }
@@ -182,8 +181,9 @@ vector<Action> simulated_annealing(int attempts, int iterations) {
     vector<int> best_order;
 
     for (int attempt=0; attempt<attempts; ++attempt) {
+        cerr << "Starting attempt " << attempt + 1 << " of " << attempts << endl;
         vector<int> order(game.num_monsters);
-        for (int i=0; i<order.size(); ++i) order[i] = i;
+        for (int i=0; i<game.num_monsters; ++i) order[i] = i;
 
         int n_used = 1;
         for (int i=0; i<iterations; ++i) {
@@ -234,7 +234,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(100, 10000);
+    const vector<Action> answer = simulated_annealing(10, 50000);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
