@@ -1,6 +1,6 @@
 import json
 
-TCS = 25
+TCS = 50
 
 for i in range(1, TCS+1):
     data = json.load(open(f"inputs/{format(i,'03')}.json"))
@@ -24,7 +24,7 @@ for i in range(1, TCS+1):
         f.write(f"{len(data['monsters'])}\n")
         #f.write("x y hp gold exp\n")
         for monster in data["monsters"]:
-            f.write(f"{monster['x']} {monster['y']} {monster['hp']} {monster['gold']} {monster['exp']}\n")
+            f.write(f"{monster['x']} {monster['y']} {monster['hp']} {monster['gold']} {monster['exp']} {0 if i <= 25 else monster['range']} {0 if i <= 25 else monster['attack']}\n")
 
     print(f"Converted testcase {i} from JSON to TXT")
 print("Done")
