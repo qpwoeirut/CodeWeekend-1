@@ -24,19 +24,19 @@ inline int square(const int x) {
 }
 
 // TODO: try to consteval this
-int dist[MAX_LEVEL + 1][H][W];
+int dist[MAX_LEVEL + 1][H + 1][W + 1];
 vector<pii> reachable[MAX_LEVEL + 1];
 void calculate_dist() {
     hero.reset();
     for (int level = 0; level <= MAX_LEVEL; ++level) {
-        for (int x=0; x<W; ++x) {
-            for (int y=0; y<H; ++y) {
+        for (int x=0; x<=W; ++x) {
+            for (int y=0; y<=H; ++y) {
                 dist[level][y][x] = W * H;
             }
         }
 
-        for (int x=-W + 1; x < W; ++x) {
-            for (int y=-H + 1; y < H; ++y) {
+        for (int x=-W; x <= W; ++x) {
+            for (int y=-H; y <= H; ++y) {
                 if (x * x + y * y <= square(hero.get_speed(level))) reachable[level].emplace_back(y, x);
             }
         }
@@ -50,8 +50,8 @@ void calculate_dist() {
         });
 
         queue<pii> q;
-        for (int x=0; x<W; ++x) {
-            for (int y=0; y<H; ++y) {
+        for (int x=0; x<=W; ++x) {
+            for (int y=0; y<=H; ++y) {
                 if (x * x + y * y <= square(hero.get_range(level))) {
                     dist[level][y][x] = 0;
                     q.emplace(y, x);
@@ -61,10 +61,10 @@ void calculate_dist() {
         while (q.size() > 0) {
             const pii cur = q.front(); q.pop();
             
-            if ((cur.first + 1 < H && dist[level][cur.first][cur.second] != dist[level][cur.first + 1][cur.second])
-                 || (cur.second + 1 < W && dist[level][cur.first][cur.second] != dist[level][cur.first][cur.second + 1])) {
+            if ((cur.first < H && dist[level][cur.first][cur.second] != dist[level][cur.first + 1][cur.second])
+                 || (cur.second < W && dist[level][cur.first][cur.second] != dist[level][cur.first][cur.second + 1])) {
                 for (const pii& d: reachable[level]) {
-                    if (d.first >= 0 && d.second >= 0 && cur.first + d.first < H && cur.second + d.second < W && dist[level][cur.first + d.first][cur.second + d.second] > dist[level][cur.first][cur.second] + 1) {
+                    if (d.first >= 0 && d.second >= 0 && cur.first + d.first <= H && cur.second + d.second <= W && dist[level][cur.first + d.first][cur.second + d.second] > dist[level][cur.first][cur.second] + 1) {
                         dist[level][cur.first + d.first][cur.second + d.second] = dist[level][cur.first][cur.second] + 1;
                         q.emplace(cur.first + d.first, cur.second + d.second);
                     }
@@ -93,9 +93,9 @@ pii calculate_order_score(const array<int, N>& order) {
             continue;
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
-            bool a_ok = 0 <= x + a.second && x + a.second < W && 0 <= y + b.first && y + b.first < H;
-            bool b_ok = 0 <= x + b.second && x + b.second < W && 0 <= y + b.first && y + b.first < H;
-            if (a_ok != b_ok) return a_ok > b_ok;
+            bool a_ok = 0 <= x + a.second && x + a.second <= W && 0 <= y + a.first && y + a.first <= H;
+            bool b_ok = 0 <= x + b.second && x + b.second <= W && 0 <= y + b.first && y + b.first <= H;
+            if (!a_ok || !b_ok) return a_ok > b_ok;
             int new_exp = 0;
             for (int j=i; j<game.num_monsters; ++j) {
                 const int level = hero.get_prosp_level(new_exp);
@@ -143,10 +143,10 @@ vector<Action> recover_actions(const array<int, N>& order) {
             ++i;
             continue;
         }
-        const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {bool a_ok = 0 <= x + a.second && x + a.second < W && 0 <= y + b.first && y + b.first < H;
-            bool a_ok = 0 <= x + a.second && x + a.second < W && 0 <= y + b.first && y + b.first < H;
-            bool b_ok = 0 <= x + b.second && x + b.second < W && 0 <= y + b.first && y + b.first < H;
-            if (a_ok != b_ok) return a_ok > b_ok;
+        const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
+            bool a_ok = 0 <= x + a.second && x + a.second <= W && 0 <= y + a.first && y + a.first <= H;
+            bool b_ok = 0 <= x + b.second && x + b.second <= W && 0 <= y + b.first && y + b.first <= H;
+            if (!a_ok || !b_ok) return a_ok > b_ok;
             int new_exp = 0;
             for (int j=i; j<game.num_monsters; ++j) {
                 const int level = hero.get_prosp_level(new_exp);
