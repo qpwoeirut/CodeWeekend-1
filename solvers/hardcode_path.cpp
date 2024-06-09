@@ -53,13 +53,12 @@ int calculate_fatigue(const bitset<N>& killed, const int x, const int y) {
     return fatigue;
 }
 
-bitset<N> killed;
 vector<Action> follow_path() {
     hero.reset();
-    killed.reset();
+    bitset<N> killed;
 
-    vector<Action> actions;
     int x = game.start_x, y = game.start_y;
+    vector<Action> actions;
     for (pii p: PATH) {
         p.first += rng.next_int(-5, 5);
         p.second += rng.next_int(-5, 5);
@@ -102,12 +101,9 @@ vector<Action> follow_path() {
             y = nxt.second;
             actions.emplace_back("move", x, y);
 
-            if ((int)actions.size() >= game.num_turns) break;
-        }
-        if ((int)actions.size() >= game.num_turns) break;
+        if (turns >= game.num_turns) return pii(gold, game.num_monsters - i);
     }
-    while ((int)actions.size() > game.num_turns) actions.pop_back();
-    return actions;
+    return pii(gold, 0);
 }
 
 int main() {
