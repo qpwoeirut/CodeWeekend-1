@@ -44,7 +44,7 @@ void calculate_dist() {
         }
         reachable[level].shrink_to_fit();
 
-        cerr << "level " << level << ' ' << reachable[level].size() << endl;
+        //cerr << "level " << level << ' ' << reachable[level].size() << endl;
 
         // Sort by descending distance because why not.
         sort(reachable[level].begin(), reachable[level].end(), [](const pii& a, const pii& b) {
@@ -95,15 +95,19 @@ pii calculate_order_score(const array<int, N>& order) {
             continue;
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
-            // TODO: this doesn't account for leveling up before attacking the next monster(s).
+            int new_exp = 0;
             for (int j=i; j<(int)order.size(); ++j) {
+                const int level = hero.get_prosp_level(new_exp);
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
                 const int dx_b = abs(monster[order[j]].x - (x + b.second));
                 const int dy_b = abs(monster[order[j]].y - (y + b.first));
-                if (dist[hero.level][dy_a][dx_a] != dist[hero.level][dy_b][dx_b]) {
-                    return dist[hero.level][dy_a][dx_a] < dist[hero.level][dy_b][dx_b];
+
+                if (dist[level][dy_a][dx_a] != dist[level][dy_b][dx_b]) {
+                    return dist[level][dy_a][dx_a] < dist[level][dy_b][dx_b];
                 }
+
+                new_exp += monster[order[j]].exp;
             }
             return false;
         });
@@ -139,15 +143,19 @@ vector<Action> recover_actions(const array<int, N>& order) {
             continue;
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
-            // TODO: this doesn't account for leveling up before attacking the next monster(s).
+            int new_exp = 0;
             for (int j=i; j<(int)order.size(); ++j) {
+                const int level = hero.get_prosp_level(new_exp);
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
                 const int dx_b = abs(monster[order[j]].x - (x + b.second));
                 const int dy_b = abs(monster[order[j]].y - (y + b.first));
-                if (dist[hero.level][dy_a][dx_a] != dist[hero.level][dy_b][dx_b]) {
-                    return dist[hero.level][dy_a][dx_a] < dist[hero.level][dy_b][dx_b];
+
+                if (dist[level][dy_a][dx_a] != dist[level][dy_b][dx_b]) {
+                    return dist[level][dy_a][dx_a] < dist[level][dy_b][dx_b];
                 }
+
+                new_exp += monster[order[j]].exp;
             }
             return false;
         });
