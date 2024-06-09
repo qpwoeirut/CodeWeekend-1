@@ -2,6 +2,7 @@
 #define TYPES_CPP
 
 #include <iostream>
+#include <string>
 
 struct Game {
     int start_x, start_y;
@@ -20,22 +21,23 @@ struct Hero {
     int level = 0;
     int exp = 0;
 
-    void add_exp(int delta)
-    {
+    void reset() {
+        level = 0;
+        exp = 0;
+    }
+
+    void add_exp(int delta) {
         exp += delta;
-        if (exp >= 1000 + level * (level - 1) * 50)
-        {
+        while (exp >= 1000 + level * (level - 1) * 50) {
             exp -= 1000 + level * (level - 1) * 50;
             level += 1;
         }
     }
     
-    int get_prosp_level(int delta)
-    {
+    int get_prosp_level(int delta) {
         int current_level = level;
         int prospective_exp = exp + delta;
-        while (prospective_exp >= 1000 + current_level * (current_level - 1) * 50)
-        {
+        while (prospective_exp >= 1000 + current_level * (current_level - 1) * 50) {
             prospective_exp -= 1000 + current_level * (current_level - 1) * 50;
             current_level++;
         }
@@ -43,31 +45,35 @@ struct Hero {
         return current_level;
     }
 
-    int get_speed(int current_level)
-    {
+    int get_speed(int current_level) {
         return base_speed + (int)(base_speed * current_level * level_speed_coeff/100);
     }
-    int get_range(int current_level)
-    {
+    int get_range(int current_level) {
         return base_range + (int)(base_range * current_level * level_range_coeff/100);
     }
-    int get_power(int current_level)
-    {
+    int get_power(int current_level) {
         return base_power + (int)(base_power * current_level * level_power_coeff/100);
     }
+
+    int get_speed() {
+        return get_speed(level);
+    }
+    int get_range() {
+        return get_range(level);
+    }
+    int get_power() {
+        return get_power(level);
+    }
     
-    int get_prosp_speed(int delta)
-    {
+    int get_prosp_speed(int delta) {
         return get_speed(get_prosp_level(delta));
     }
     
-    int get_prosp_power(int delta)
-    {
+    int get_prosp_power(int delta) {
         return get_power(get_prosp_level(delta));
     }
     
-    int get_prosp_range(int delta)
-    {
+    int get_prosp_range(int delta) {
         return get_range(get_prosp_level(delta));
     }
 
@@ -91,6 +97,18 @@ struct Monster {
 struct Action {
     bool is_move;
     int a, b;
+
+    Action(const std::string& attack, const int id) {
+        assert(attack == "attack");
+        is_move = false;
+        a = id;
+    }
+    Action(const std::string& move, const int x, const int y) {
+        assert(move == "move");
+        is_move = true;
+        a = x;
+        b = y;
+    }
     
     friend std::ostream& operator<<(std::ostream& os, const Action& action) {
         if (action.is_move) {

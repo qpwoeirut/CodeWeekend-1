@@ -33,19 +33,24 @@ class bcolors:
 
 NUM_TESTCASES = 50
 
-GPP_PATH = "g++-14"
-FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
+GPP_PATH = "g++-13"
+OPT_FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
+DEBUG_FLAGS = ["-Wall", "-fsanitize=address,undefined,signed-integer-overflow", "-ftrapv"]
 
 
-def compile_solution(solution):
+def compile_solution(solution, is_debug=False):
     if pathlib.Path(solution).suffix != '.cpp': return
+
+    flags = DEBUG_FLAGS if is_debug else OPT_FLAGS
 
     file_name = pathlib.Path(solution).name
     pathlib.Path("build").mkdir(exist_ok=True)
-    process = subprocess.run([GPP_PATH, *FLAGS, solution, "-o", f"build/{file_name}"], stderr=subprocess.PIPE)
+    process = subprocess.run([GPP_PATH, *flags, solution, "-o", f"build/{file_name}"], stderr=subprocess.PIPE)
     stderr = process.stderr.decode('utf-8')
     if stderr:
-        print(f"Compilation error: {stderr}")
+        print(stderr)
+    if process.returncode != 0:
+        print("Compilation failed, stopping.")
         sys.exit(1)
 
 
@@ -86,19 +91,17 @@ def run_testcase(solution, testcase):
         input_json = f"inputs/{format(testcase, '03')}.json"
         output_json = f"output/{file_name}_OUT_{format(testcase, '03')}.json"
         with open(input_json) as fin, open(output_json, 'w') as fout:
-            process = subprocess.run(["python3", solution], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
-        stderr = process.stderr.decode('utf-8')
-        if stderr:
-            print(f"Runtime error: {stderr}")
+            process = subprocess.run(["python3", solution], stdin=fin, stdout=fout, stderr=sys.stderr)
+        if process.returncode != 0:
+            print("Runtime error, stopping.")
             sys.exit(1)
     elif file_extension == '.cpp':
         input_txt = f"inputs/{format(testcase, '03')}.txt"
         output_txt = f"output/{file_name}_OUT_{format(testcase, '03')}.txt"
         with open(input_txt) as fin, open(output_txt, 'w') as fout:
-            process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
-        stderr = process.stderr.decode('utf-8')
-        if stderr:
-            print(f"Runtime error: {stderr}")
+            process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=sys.stderr)
+        if process.returncode != 0:
+            print("Runtime error, stopping.")
             sys.exit(1)
 
         output_json = f"output/{file_name}_OUT_{format(testcase, '03')}.json"
@@ -142,6 +145,7 @@ def main():
                         help=f"Testcase number (1-{NUM_TESTCASES}), 0 for all, begin-end for range, `,` separated for multiple testcases, a for 1-25, b for 26-50")
     parser.add_argument("--solution", "-s", type=str, default=None, help="Path to solution file")
     parser.add_argument("--trials", "-t", type=int, default=1, help="Number of trials to run")
+    parser.add_argument("--debug", type=bool, default=False, help="Use C++ debug flags")
 
     args = parser.parse_args()
 
@@ -154,7 +158,7 @@ def main():
         print("Solution file not provided")
         sys.exit(1)
 
-    compile_solution(args.solution)
+    compile_solution(args.solution, args.debug)
 
     tcs = parse_testcase(args.testcase)
 
