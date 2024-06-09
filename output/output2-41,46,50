@@ -1,0 +1,43 @@
+Last login: Sun Jun  9 13:01:06 on ttys002
+qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % source venv/bin/activate                                                                                    
+(venv) qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -c true -tc 41,46,50                              
+Testcase 041:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 5
+New best score: 828
+Starting attempt 2 of 5
+Starting attempt 3 of 5
+Starting attempt 4 of 5
+Starting attempt 5 of 5
+New best score: 853
+Testcase 041: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [11:47<00:00, 707.91s/it]
+Testcase 046:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 5
+New best score: 2255
+Starting attempt 2 of 5
+New best score: 2516
+Starting attempt 3 of 5
+Starting attempt 4 of 5
+Starting attempt 5 of 5
+Testcase 046: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [12:52<00:00, 772Testcase 046: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [12:52<00:00, 772.39s/it]
+Testcase 050:   0%|                                                                                                                       | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 5
+New best score: 12880
+Starting attempt 2 of 5
+Starting attempt 3 of 5
+Starting attempt 4 of 5
+Starting attempt 5 of 5
+Testcase 050: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [11:53<00:00, 713.62s/it]
+(venv) qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % 
+
+
+
+
+
+
+
+
+
+

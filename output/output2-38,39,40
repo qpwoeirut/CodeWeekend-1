@@ -1,0 +1,43 @@
+Last login: Sun Jun  9 12:58:54 on ttys000
+qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % source venv/bin/activate
+(venv) qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -tc 38-41
+Testcase 038:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 5
+New best score: 1101
+Starting attempt 2 of 5
+Starting attempt 3 of 5
+Starting attempt 4 of 5
+Starting attempt 5 of 5
+New best score: 2004
+Testcase 038: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [13:59<00:00, 839.86s/it]
+Testcase 039:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]Assertion failed: (game.num_monsters <= N), function main, file simulated_annealing.cpp, line 273.
+Runtime error, stopping.
+Testcase 039:   0%|                                                                                                                               | 0/1 [00:00<?, ?it/s]
+(venv) qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % python3 runner.py -s solvers/simulated_annealing.cpp -t 1 -tc 39,40
+Testcase 039:   0%|                                                                                                                       | 0/1 [00:00<?, ?it/s]Finished reading input.
+Finished calculating dist.
+Starting attempt 1 of 5
+New best score: 17
+Starting attempt 2 of 5
+New best score: 25
+Starting attempt 3 of 5
+New best score: 208
+Starting attempt 4 of 5
+Starting attempt 5 of 5
+New best score: 837
+Testcase 039: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [20:00<00:00, 1200.08s/it]
+Testcase 040:   0%|                                                                                                                                         | 0/1 [00:00<?, ?it/s]Assertion failed: (game.num_monsters <= N), function main, file simulated_annealing.cpp, line 273.
+Runtime error, stopping.
+Testcase 040:   0%|                                                                                                                                         | 0/1 [00:00<?, ?it/s]
+(venv) qpwoeirut@Stanleys-MacBook-Pro-3 CodeWeekend-1 % 
+
+
+
+
+
+
+
+
+
+

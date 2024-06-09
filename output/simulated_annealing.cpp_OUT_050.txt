@@ -1,420 +1,420 @@
 move 50 250
 move 100 250
 move 150 250
-move 200 250
-move 250 250
-move 300 250
-move 350 250
-move 400 250
-move 450 250
-move 498 258
-move 545 275
-move 592 292
-move 639 309
-move 686 326
-move 733 343
-move 777 366
-attack 86
-attack 86
-move 822 363
-move 859 372
-move 909 372
-attack 88
-attack 88
-move 859 372
+move 199 248
+move 248 252
+move 293 273
+move 340 290
+move 390 290
+move 438 303
+move 488 303
+move 538 303
+move 588 303
+move 631 328
+move 679 338
+move 728 345
+move 777 338
+move 827 338
+move 850 363
 attack 87
 attack 87
-move 822 363
-move 773 372
-move 723 372
-attack 85
-attack 85
-move 673 372
-attack 84
-attack 84
-move 723 372
-move 773 372
-move 822 363
-move 871 354
-move 918 337
-move 963 316
-attack 82
-attack 82
-move 1012 310
-move 1045 310
+move 879 332
+move 928 340
+move 977 331
+move 1024 314
 attack 83
 attack 83
-move 1094 318
-move 1142 330
-move 1192 330
-move 1241 337
-move 1272 375
-attack 133
-attack 133
-attack 133
-move 1312 400
-move 1360 386
-move 1409 392
-move 1457 378
-attack 136
-attack 136
-attack 136
-move 1507 378
-attack 137
-attack 137
-attack 137
-move 1469 398
-move 1420 407
-move 1371 416
-move 1322 425
-move 1273 434
-attack 140
-attack 140
-attack 140
-move 1322 425
-move 1333 377
-attack 134
-attack 134
-attack 134
-move 1383 377
-attack 135
-attack 135
-attack 135
-move 1384 425
-attack 142
-attack 142
-attack 142
-move 1335 434
-attack 141
-attack 141
-attack 141
-move 1382 417
-move 1430 403
-move 1459 434
-attack 143
-attack 143
-attack 143
-move 1508 425
-attack 144
-attack 144
-attack 144
-move 1555 408
-move 1582 375
-attack 138
-attack 138
-attack 138
-move 1576 424
-attack 145
-attack 145
-attack 145
-move 1625 428
-attack 146
-attack 146
-attack 146
-move 1639 380
-attack 139
-attack 139
-attack 139
-move 1688 372
-move 1724 338
-move 1751 296
-move 1778 254
-move 1805 212
-move 1824 166
-move 1841 119
-move 1858 72
-attack 147
-attack 147
-attack 147
-attack 147
-move 1896 104
-move 1931 70
-attack 148
-attack 148
-attack 148
-attack 148
-move 1980 71
-attack 149
-attack 149
-attack 149
-attack 149
-move 2014 107
-move 2035 152
-move 2073 184
-move 2105 222
-move 2107 238
-attack 172
-attack 172
-attack 172
-attack 172
-move 2117 286
-move 2162 307
-attack 180
-attack 180
-attack 180
-attack 180
-move 2117 286
-move 2085 324
-move 2055 364
-attack 185
-attack 185
-attack 185
-attack 185
-move 2066 316
-move 2040 274
-move 2026 226
-move 1993 193
-attack 163
-attack 163
-attack 163
-attack 163
-move 1989 238
-attack 170
-attack 170
-attack 170
-attack 170
-move 2031 211
-move 2033 162
-move 2041 122
-attack 157
-attack 157
-attack 157
-attack 157
-move 1992 131
-attack 156
-attack 156
-attack 156
-attack 156
-move 2041 122
-move 2048 73
-attack 150
-attack 150
-attack 150
-attack 150
-move 2081 110
-move 2107 72
-attack 151
-attack 151
-attack 151
-attack 151
-move 2154 74
-move 2179 82
-move 2227 70
-attack 153
-attack 153
-attack 153
-attack 153
-move 2213 118
-attack 160
-attack 160
-move 2168 133
-move 2124 115
-attack 158
-attack 158
-move 2153 131
-attack 159
-attack 159
-move 2166 83
-attack 152
-attack 152
-move 2121 104
-move 2074 121
-move 2027 138
-move 1979 152
-move 1931 166
-move 1883 180
-attack 161
-attack 161
-move 1917 144
-attack 155
-attack 155
-move 1877 140
-attack 154
-attack 154
-move 1914 173
-attack 162
-attack 162
-move 1939 216
-move 1946 265
-move 1932 313
-move 1932 363
-move 1924 412
+move 976 319
+attack 82
+attack 82
+move 931 337
+move 900 313
+attack 81
+attack 81
+move 866 340
+move 817 332
+move 768 340
+move 720 354
+move 672 368
+attack 84
+attack 84
+move 721 362
+move 766 342
+move 815 340
+move 864 349
+move 912 363
+attack 88
+attack 88
+move 961 372
+attack 89
+attack 89
+move 974 363
+move 1023 372
+attack 90
+attack 90
+move 974 363
+move 925 371
+move 879 352
+move 842 319
+attack 80
+attack 80
+move 795 312
+attack 79
+attack 79
+move 774 338
+move 733 312
+attack 78
+attack 78
+move 724 361
+attack 85
+attack 85
+move 717 410
+move 670 427
+attack 91
+attack 91
+move 718 425
+attack 92
+attack 92
+move 767 416
+move 785 370
+attack 86
+attack 86
+move 824 339
+move 874 339
+move 924 339
+move 974 339
+move 1023 344
+move 1073 344
+move 1123 344
+move 1173 344
+move 1223 344
+move 1273 344
+move 1323 344
+move 1373 344
+move 1422 353
+move 1472 353
+move 1521 362
+move 1570 371
+move 1619 380
+move 1668 389
+move 1717 398
+move 1766 407
+move 1815 416
+move 1864 425
+move 1913 434
 attack 190
 attack 190
-move 1908 365
-move 1878 325
-attack 175
-attack 175
-move 1927 331
-attack 176
-attack 176
-move 1976 329
+attack 190
+attack 190
+move 1864 425
+move 1815 416
+move 1766 407
+move 1716 407
+move 1666 407
+move 1616 407
+move 1566 407
+move 1517 400
+move 1468 391
+move 1419 382
+move 1370 373
+move 1321 364
+move 1279 337
+move 1232 320
+move 1185 303
+move 1138 286
+move 1091 269
+move 1044 252
+move 1003 228
+move 953 228
+move 905 242
+move 855 242
+attack 73
+attack 73
+move 902 243
+attack 74
+attack 74
+move 923 248
+move 973 248
+attack 75
+attack 75
+move 1023 248
+attack 76
+attack 76
+move 973 248
+move 923 248
+move 873 248
+move 823 248
+move 773 248
+move 723 248
+move 673 248
+attack 70
+attack 70
+move 717 226
+move 767 226
+move 817 226
+move 866 217
+move 914 203
+move 962 189
+attack 68
+attack 68
+move 973 186
+move 1023 186
+attack 69
+attack 69
+move 973 186
+move 923 186
+move 899 186
+attack 67
+attack 67
+move 850 194
+attack 66
+attack 66
+move 801 203
+move 752 212
+move 703 221
+move 654 230
+move 605 221
+move 555 221
+move 506 212
+move 457 203
+move 407 203
+move 363 219
+move 320 244
+attack 25
+move 295 201
+move 246 195
+attack 17
+move 197 186
+attack 16
+move 235 186
+move 284 178
+move 332 166
+move 379 149
+move 425 130
+attack 13
+move 378 132
+attack 12
+move 330 146
+move 282 160
+move 233 169
+move 184 178
+move 135 186
+attack 15
+move 119 207
+move 72 190
+attack 14
+move 119 207
+move 167 194
+move 215 180
+move 259 157
+move 301 130
+attack 11
+move 323 174
+move 331 223
+move 378 240
+attack 26
+move 428 240
+attack 27
+move 384 248
+move 334 248
+move 284 248
+move 234 248
+move 184 248
+move 134 248
+move 84 248
+attack 21
+move 134 248
+attack 22
+move 183 245
+attack 23
+move 233 245
+move 283 245
+move 333 245
+move 383 245
+move 433 245
+move 483 245
+move 533 245
+move 583 245
+move 632 254
+move 681 263
+move 730 272
+move 779 281
+move 828 290
+move 877 299
+move 926 308
+move 975 317
+move 1024 326
+move 1073 335
+move 1122 344
+move 1171 353
+move 1220 362
+move 1269 371
+move 1318 380
+move 1367 389
+move 1402 419
+attack 142
+attack 142
+move 1452 419
+attack 143
+attack 143
+move 1502 419
+attack 144
+attack 144
+move 1551 428
+attack 145
+attack 145
+move 1590 397
+move 1637 414
+attack 146
+attack 146
+move 1674 381
+move 1701 339
+move 1728 297
+move 1755 255
+move 1782 213
+move 1807 170
+move 1832 127
+move 1853 82
+attack 147
+attack 147
+move 1883 121
+move 1932 130
+attack 155
+attack 155
+move 1927 83
+attack 148
+attack 148
+move 1967 113
+attack 156
+attack 156
+move 1930 146
+move 1883 129
+attack 154
+attack 154
+move 1912 169
+move 1943 197
+move 1966 241
+move 1980 289
 attack 177
 attack 177
-move 2006 368
-attack 184
-attack 184
-move 2054 354
-move 2101 363
-attack 186
-attack 186
-move 2128 321
-attack 179
-attack 179
-move 2169 317
-move 2178 268
-attack 173
-attack 173
-move 2215 300
-attack 181
-attack 181
-move 2210 253
-move 2228 207
-attack 167
-attack 167
-move 2210 253
-move 2219 302
-move 2228 351
-attack 188
-attack 188
-move 2190 379
-attack 187
-attack 187
-move 2217 421
-attack 195
-attack 195
-move 2167 421
-attack 194
-attack 194
-move 2118 419
-attack 193
-attack 193
-move 2069 428
-attack 192
-attack 192
-move 2066 379
-move 2054 331
-attack 178
-attack 178
-move 2005 340
-move 1964 368
-move 1975 416
-attack 191
-attack 191
-move 1930 395
-move 1883 378
-attack 182
-attack 182
-move 1873 415
-attack 189
-attack 189
-move 1914 387
-move 1923 351
-move 1904 305
-move 1931 263
+move 1945 254
 attack 169
 attack 169
-move 1908 303
-move 1924 350
-attack 183
-attack 183
-move 1908 303
-move 1878 263
-attack 168
-attack 168
-move 1927 254
-move 1977 254
-move 2027 254
-attack 171
-attack 171
-move 2074 238
-move 2110 205
-move 2155 186
-attack 166
-attack 166
-move 2120 186
-attack 165
-attack 165
-move 2070 186
+move 1976 229
+attack 170
+attack 170
+move 1943 194
+attack 162
+attack 162
+move 1990 178
+attack 163
+attack 163
+move 2039 187
 attack 164
 attack 164
-move 2120 186
-move 2168 194
-move 2216 180
-move 2234 226
+move 2088 186
+attack 165
+attack 165
+move 2100 186
+move 2150 186
+attack 166
+attack 166
+move 2100 186
+move 2066 152
+move 2027 121
+move 1997 81
+attack 149
+attack 149
+move 1960 114
+move 1918 141
+move 1878 171
+attack 161
+attack 161
+move 1915 204
+move 1902 252
+move 1875 294
+attack 175
+attack 175
+move 1918 300
+move 1952 264
+move 1982 224
+move 2029 238
+attack 171
+attack 171
+move 2049 194
+move 2054 145
+attack 157
+attack 157
+move 2102 139
+attack 158
+attack 158
+move 2151 130
+attack 159
+attack 159
+move 2182 164
+move 2215 134
+attack 160
+attack 160
+move 2198 181
+move 2181 228
+attack 173
+attack 173
+move 2219 232
 attack 174
 attack 174
-move 2279 248
-move 2328 262
-move 2377 276
-move 2421 299
-move 2445 344
-attack 231
-attack 231
-move 2482 309
-move 2532 319
-move 2581 333
-move 2630 347
-attack 234
-attack 234
-move 2679 361
-attack 235
-attack 235
-move 2647 322
-move 2623 277
-move 2587 241
-move 2601 193
-move 2628 150
-attack 206
-attack 206
-move 2591 144
-move 2546 167
-attack 211
-attack 211
-move 2512 129
-move 2531 94
-attack 197
-attack 197
-move 2481 88
-attack 196
-attack 196
-move 2505 133
-move 2512 182
-move 2479 220
-attack 217
-attack 217
-move 2529 228
-attack 218
-attack 218
-move 2566 194
-move 2566 143
-move 2575 93
-move 2616 66
-attack 199
-attack 199
-attack 198
-attack 198
-move 2608 116
-move 2604 166
-attack 212
-attack 212
-move 2649 190
-move 2700 190
-attack 214
-attack 214
-move 2751 190
-attack 215
-attack 215
-move 2802 190
-attack 216
-attack 216
-move 2751 190
-move 2716 227
-move 2710 277
-attack 228
-attack 228
-attack 221
-attack 221
-move 2677 239
-move 2711 201
-move 2745 163
+move 2173 221
+move 2127 240
+attack 172
+attack 172
+move 2080 244
+move 2037 269
+move 1990 282
+move 1943 299
+attack 176
+attack 176
+move 1979 280
+move 2010 244
+move 2054 230
+move 2058 186
+move 2088 149
+move 2126 117
+move 2171 96
+move 2215 73
+attack 153
+attack 153
+move 2174 83
+attack 152
+attack 152
+move 2124 91
+attack 151
+attack 151
+move 2110 140
+move 2152 168
+move 2202 178
+attack 167
+attack 167
+move 2157 202
+move 2111 181
+move 2087 136
+move 2065 90
+attack 150
+attack 150
+move 2046 137
+move 2018 179
+move 1983 214
+move 1942 242
+move 1893 253
+attack 168
+attack 168
+move 1926 290
+move 1977 290
+move 2027 300
+attack 178
+attack 178
+move 2077 310
+attack 179
+attack 179
+move 2071 360
+move 2095 405
+attack 193
+attack 193
