@@ -97,7 +97,7 @@ pii calculate_order_score(const array<int, N>& order) {
             const int added_turns = (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
             fatigue += (added_turns - 1) * calculate_fatigue(killed, x, y);
             turns += added_turns;
-            if (turns > game.num_turns) return pii(gold, game.num_monsters - i);
+            if (turns > game.num_turns) return pii(gold, i);
 
             gold += 1000 * monster[order[i]].gold / (1000 + fatigue);
             hero.add_exp(monster[order[i]].exp);
@@ -132,7 +132,7 @@ pii calculate_order_score(const array<int, N>& order) {
         ++turns;
         fatigue += calculate_fatigue(killed, x, y);
 
-        if (turns >= game.num_turns) return pii(gold, game.num_monsters - i);
+        if (turns >= game.num_turns) return pii(gold, i);
     }
     return pii(gold, 0);
 }
@@ -290,7 +290,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(5, 140s);
+    const vector<Action> answer = simulated_annealing(5, 100s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
