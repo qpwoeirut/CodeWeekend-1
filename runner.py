@@ -45,7 +45,9 @@ def compile_solution(solution):
     process = subprocess.run([GPP_PATH, *FLAGS, solution, "-o", f"build/{file_name}"], stderr=subprocess.PIPE)
     stderr = process.stderr.decode('utf-8')
     if stderr:
-        print(f"Compilation error: {stderr}")
+        print(stderr)
+    if process.returncode != 0:
+        print("Compilation failed, stopping.")
         sys.exit(1)
 
 
