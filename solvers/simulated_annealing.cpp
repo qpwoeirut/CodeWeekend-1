@@ -188,7 +188,11 @@ vector<Action> simulated_annealing(int attempts, int iterations) {
 
     for (int attempt=0; attempt<attempts; ++attempt) {
         cerr << "Starting attempt " << attempt + 1 << " of " << attempts << endl;
+        int cur_score = 0;
+        vector<int> cur_order;
+
         vector<int> order(game.num_monsters);
+        order.shrink_to_fit();
         for (int i=0; i<game.num_monsters; ++i) order[i] = i;
 
         int n_used = 1;
@@ -199,22 +203,27 @@ vector<Action> simulated_annealing(int attempts, int iterations) {
             const pii new_result = calculate_order_score(new_order);
             const int new_score = new_result.first;
 
-            if (best_score < new_score) {
-                // TODO: consider printing out the new best order to track progress
-                best_score = new_score;
-                best_order = new_order;
+            if (cur_score < new_score) {
+                cur_score = new_score;
+                cur_order = new_order;
                 order = new_order;  // TODO: try swapping instead?
                 n_used = new_result.second;
 
-                cerr << "New best score: " << best_score << endl;
+                //cerr << "New current score: " << cur_score << endl;
             } else {
                 const double progress = (double)(i) / iterations;
                 const double temp = TEMP_START * pow(TEMP_END / TEMP_START, progress);
-                if (rng.next_double() < exp((new_score - best_score) / temp)) {
+                if (rng.next_double() < exp((new_score - cur_score) / temp)) {
                     order = new_order;  // TODO: try swapping instead?
                     n_used = new_result.second;
                 }
             }
+        }
+
+        if (best_score < cur_score) {
+            best_score = cur_score;
+            best_order = cur_order;
+            cerr << "New best score: " << best_score << endl;
         }
     }
 
@@ -240,7 +249,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(10, 50000);
+    const vector<Action> answer = simulated_annealing(10, 100000);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
