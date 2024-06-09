@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 
+#include "limits.cpp"
 #include "rng.cpp"
 #include "types.cpp"
 
@@ -17,35 +18,28 @@ constexpr const int MAX_LEVEL = 25;  // Only tests #36 and #37 are theoretically
 
 static_assert(REVERSE_CHANCE + SHIFT_CHANCE == 1.0);
 
-
-// TODO: do some compiler tricks to make this a constexpr on a per-test basis
-// and consider getting the inputs at compile time
-const int MAX_N = 2858;
-const int MAX_W = 3000;
-const int MAX_H = 2222;
-
 Hero hero;
 Game game;
-Monster monster[MAX_N];
+Monster monster[N];
 
 inline int square(const int x) {
     return x * x;
 }
 
 // TODO: try to consteval this
-int dist[MAX_LEVEL + 1][MAX_H][MAX_W];
+int dist[MAX_LEVEL + 1][H][W];
 vector<pii> reachable[MAX_LEVEL + 1];
 void calculate_dist() {
     hero.reset();
     for (int level = 0; level <= MAX_LEVEL; ++level) {
-        for (int x=0; x<MAX_W; ++x) {
-            for (int y=0; y<MAX_H; ++y) {
-                dist[level][y][x] = MAX_W * MAX_H;
+        for (int x=0; x<W; ++x) {
+            for (int y=0; y<H; ++y) {
+                dist[level][y][x] = W * H;
             }
         }
 
-        for (int x=-MAX_W + 1; x < MAX_W; ++x) {
-            for (int y=-MAX_H + 1; y < MAX_H; ++y) {
+        for (int x=-W + 1; x < W; ++x) {
+            for (int y=-H + 1; y < H; ++y) {
                 if (x * x + y * y <= square(hero.get_range(level))) reachable[level].emplace_back(y, x);
             }
         }
@@ -64,10 +58,10 @@ void calculate_dist() {
         while (q.size() > 0) {
             const pii cur = q.front(); q.pop();
             
-            if ((cur.first + 1 < MAX_H && dist[level][cur.first][cur.second] != dist[level][cur.first + 1][cur.second])
-                 || (cur.second + 1 < MAX_W && dist[level][cur.first][cur.second] != dist[level][cur.first][cur.second + 1])) {
+            if ((cur.first + 1 < H && dist[level][cur.first][cur.second] != dist[level][cur.first + 1][cur.second])
+                 || (cur.second + 1 < W && dist[level][cur.first][cur.second] != dist[level][cur.first][cur.second + 1])) {
                 for (const pii& d: reachable[level]) {
-                    if (d.first >= 0 && d.second >= 0 && cur.first + d.first < MAX_H && cur.second + d.second < MAX_W && dist[level][cur.first + d.first][cur.second + d.second] > dist[level][cur.first][cur.second] + 1) {
+                    if (d.first >= 0 && d.second >= 0 && cur.first + d.first < H && cur.second + d.second < W && dist[level][cur.first + d.first][cur.second + d.second] > dist[level][cur.first][cur.second] + 1) {
                         dist[level][cur.first + d.first][cur.second + d.second] = dist[level][cur.first][cur.second] + 1;
                         q.emplace(cur.first + d.first, cur.second + d.second);
                     }
@@ -226,6 +220,9 @@ int main() {
 
     cin >> hero;
     cin >> game;
+    assert(game.num_monsters <= N);
+    assert(game.width <= W);
+    assert(game.height <= H);
     for (int i=0; i<game.num_monsters; ++i) {
         monster[i].id = i;
         cin >> monster[i];
