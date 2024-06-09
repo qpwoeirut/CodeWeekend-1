@@ -33,7 +33,7 @@ class bcolors:
 
 NUM_TESTCASES = 50
 
-GPP_PATH = "g++-13"
+GPP_PATH = "g++-14"
 OPT_FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
 DEBUG_FLAGS = ["-Wall", "-fsanitize=address,undefined,signed-integer-overflow", "-ftrapv"]
 
