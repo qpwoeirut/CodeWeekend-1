@@ -33,7 +33,7 @@ class bcolors:
 
 NUM_TESTCASES = 50
 
-GPP_PATH = "g++-14"
+GPP_PATH = "g++-13"
 FLAGS = ["-O3", "-Wall", "-funroll-loops", "-flto", "-march=native"]
 
 
@@ -91,7 +91,9 @@ def run_testcase(solution, testcase):
             process = subprocess.run(["python3", solution], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
-            print(f"Runtime error: {stderr}")
+            print(stderr)
+        if process.returncode != 0:
+            print("Runtime error, stopping.")
             sys.exit(1)
     elif file_extension == '.cpp':
         input_txt = f"inputs/{format(testcase, '03')}.txt"
@@ -100,7 +102,9 @@ def run_testcase(solution, testcase):
             process = subprocess.run([f"./build/{file_name}"], stdin=fin, stdout=fout, stderr=subprocess.PIPE)
         stderr = process.stderr.decode('utf-8')
         if stderr:
-            print(f"Runtime error: {stderr}")
+            print(stderr)
+        if process.returncode != 0:
+            print("Runtime error, stopping.")
             sys.exit(1)
 
         output_json = f"output/{file_name}_OUT_{format(testcase, '03')}.json"
