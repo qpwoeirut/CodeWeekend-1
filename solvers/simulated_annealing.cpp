@@ -87,7 +87,7 @@ pii calculate_order_score(const array<int, N>& order) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
             turns += (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
-            if (turns > game.num_turns) return pii(gold, order.size() - i);
+            if (turns > game.num_turns) return pii(gold, game.num_monsters - i);
 
             gold += monster[order[i]].gold;
             hero.add_exp(monster[order[i]].exp);
@@ -96,7 +96,7 @@ pii calculate_order_score(const array<int, N>& order) {
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
             int new_exp = 0;
-            for (int j=i; j<(int)order.size(); ++j) {
+            for (int j=i; j<game.num_monsters; ++j) {
                 const int level = hero.get_prosp_level(new_exp);
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
@@ -116,7 +116,7 @@ pii calculate_order_score(const array<int, N>& order) {
         y += best.first;
         ++turns;
 
-        if (turns >= game.num_turns) return pii(gold, order.size() - i);
+        if (turns >= game.num_turns) return pii(gold, game.num_monsters - i);
     }
     return pii(gold, 0);
 }
@@ -131,7 +131,7 @@ vector<Action> recover_actions(const array<int, N>& order) {
     while (i < game.num_monsters) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
-            for (int p=0; p<monster[order[i]].hp; p += hero.get_power()) actions.emplace_back("attack", order[i]);
+            for (int p=0; p<monster[order[i]].hp; p += hero.get_power()) actions.emplace_back("attack", monster[order[i]].id);
             if ((int)actions.size() >= game.num_turns) {
                 while ((int)actions.size() > game.num_turns) actions.pop_back();
                 return actions;
@@ -144,7 +144,7 @@ vector<Action> recover_actions(const array<int, N>& order) {
         }
         const pii best = *min_element(reachable[hero.level].begin(), reachable[hero.level].end(), [&i, &order, &x, &y](const pii& a, const pii& b) {
             int new_exp = 0;
-            for (int j=i; j<(int)order.size(); ++j) {
+            for (int j=i; j<game.num_monsters; ++j) {
                 const int level = hero.get_prosp_level(new_exp);
                 const int dx_a = abs(monster[order[j]].x - (x + a.second));
                 const int dy_a = abs(monster[order[j]].y - (y + a.first));
@@ -252,6 +252,12 @@ int main() {
         monster[i].id = i;
         cin >> monster[i];
     }
+    sort(monster, monster + game.num_monsters, [](const Monster& a, const Monster& b) {
+        if (a.gold != b.gold) return a.gold > b.gold;
+        if (a.exp != b.exp) return a.exp > b.exp;
+        return a.id < b.id;
+    });
+    while (game.num_monsters > 1 && monster[game.num_monsters - 1].exp == 1 && monster[game.num_monsters - 1].gold == 1) --game.num_monsters;
 
     cerr << "Finished reading input." << endl;
 
