@@ -28,8 +28,9 @@ struct Hero {
 
     void add_exp(int delta) {
         exp += delta;
-        while (exp >= 1000 + level * (level - 1) * 50) {
-            exp -= 1000 + level * (level - 1) * 50;
+        // Next level is current level + 1, so use (L + 1) in the formula.
+        while (exp >= 1000 + level * (level + 1) * 50) {
+            exp -= 1000 + level * (level + 1) * 50;
             level += 1;
         }
     }
@@ -37,8 +38,9 @@ struct Hero {
     int get_prosp_level(int delta) {
         int current_level = level;
         int prospective_exp = exp + delta;
-        while (prospective_exp >= 1000 + current_level * (current_level - 1) * 50) {
-            prospective_exp -= 1000 + current_level * (current_level - 1) * 50;
+        // Next level is current level + 1, so use (L + 1) in the formula.
+        while (prospective_exp >= 1000 + current_level * (current_level + 1) * 50) {
+            prospective_exp -= 1000 + current_level * (current_level + 1) * 50;
             current_level++;
         }
         
