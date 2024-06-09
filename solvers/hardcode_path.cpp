@@ -45,12 +45,18 @@ inline int square(const int x) {
 
 Rng rng(chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count());
 
+int calculate_fatigue(const bitset<N>& killed, const int x, const int y) {
+    int fatigue = 0;
+    for (int i=0; i<game.num_monsters; ++i) {
+        if (!killed[i] && square(monster[i].x - x) + square(monster[i].y - y) <= square(monster[i].range)) fatigue += monster[i].attack;
+    }
+    return fatigue;
+}
+
 bitset<N> killed;
 vector<Action> follow_path() {
+    hero.reset();
     killed.reset();
-    sort(monster, monster + game.num_monsters, [](const Monster& a, const Monster& b) {
-        return (long long)a.hp * b.exp < (long long)b.hp * a.exp;  // sort by hp / exp
-    });
 
     vector<Action> actions;
     int x = game.start_x, y = game.start_y;
@@ -122,6 +128,10 @@ int main() {
         return a.id < b.id;
     });
     while (game.num_monsters > 1 && monster[game.num_monsters - 1].exp == 1 && monster[game.num_monsters - 1].gold == 1) --game.num_monsters;
+
+    sort(monster, monster + game.num_monsters, [](const Monster& a, const Monster& b) {
+        return (long long)a.hp * b.exp < (long long)b.hp * a.exp;  // sort by hp / exp
+    });
 
     cerr << "Finished reading input." << endl;
 
