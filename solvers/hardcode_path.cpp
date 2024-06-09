@@ -7,6 +7,10 @@
 using namespace std;
 using pii = pair<int, int>;
 
+// Parameters to tune
+constexpr const double TEMP_START = 10;
+constexpr const double TEMP_END = 0.001;
+
 // coordinates are (x, y)
 #if TESTCASE == 36
 // 26^2 + 20^2 < 33^2
@@ -43,7 +47,7 @@ inline int square(const int x) {
     return x * x;
 }
 
-Rng rng(chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count());
+Rng rng(8);
 
 int calculate_fatigue(const bitset<N>& killed, const int x, const int y) {
     int fatigue = 0;
@@ -53,17 +57,19 @@ int calculate_fatigue(const bitset<N>& killed, const int x, const int y) {
     return fatigue;
 }
 
-vector<Action> follow_path(const vector<pii>& path) {
+pii follow_path(const vector<pii>& path, vector<Action>& actions) {
     hero.reset();
+    actions.clear();
     bitset<N> killed;
 
     int x = game.start_x, y = game.start_y;
-    vector<Action> actions;
     int gold = 0;
     int fatigue = 0;
     int i = 0;
     while (i < (int)path.size()) {
-        const pii p = path[i];
+        pii p = path[i];
+        p.first += rng.next_int(-5, 5);
+        p.second += rng.next_int(-5, 5);
         for (int i=0; i<game.num_monsters; ++i) {
             if (!killed[i] && monster[i].hp < 10000 && square(monster[i].x - x) + square(monster[i].y - y) <= square(hero.get_range())) {
                 const int added_turns = (monster[i].hp + hero.get_power() - 1) / hero.get_power();
@@ -117,7 +123,65 @@ vector<Action> follow_path(const vector<pii>& path) {
     }
     while ((int)actions.size() > game.num_turns) actions.pop_back();
 
-    cerr << "gold: " << gold << endl;
+    //cerr << "gold: " << gold << endl;
+    return pii(gold, i);
+}
+
+vector<pii> mutate(vector<pii> path, const int n_used) {  // pass in a copy to mutate
+    const int idx = rng.next_int(n_used);
+    path[idx].first += rng.next_int(-5, 5);
+    path[idx].second += rng.next_int(-5, 5);
+    return path;
+}
+
+vector<Action> simulated_annealing(const int attempts, const chrono::milliseconds time_limit) {
+    int best_score = 0;
+    vector<pii> best_path;
+
+    vector<Action> actions;
+
+    for (int attempt=0; attempt<attempts; ++attempt) {
+        cerr << "Starting attempt " << attempt + 1 << " of " << attempts << endl;
+        const chrono::time_point start_time = chrono::steady_clock::now();
+
+        int cur_score = 0;
+        vector<pii> cur_path, path = PATH;
+
+        int n_used = 1;
+        //for (int i=0; i<iterations; ++i) {
+        while (chrono::steady_clock::now() - start_time < time_limit) {
+            // TODO: consider early termination if no new best is found after a while, signal handling for killing
+            const vector<pii> new_path = mutate(path, n_used);
+
+            const pii new_result = follow_path(new_path, actions);
+            const int new_score = new_result.first;
+
+            if (cur_score < new_score) {
+                cur_score = new_score;
+                cur_path = cur_path;
+                path = new_path;  // TODO: try swapping instead?
+                n_used = new_result.second;
+
+                //cerr << "New current score: " << cur_score << endl;
+            } else {
+                //const double progress = (double)(i) / iterations;
+                const double progress = (chrono::steady_clock::now() - start_time) / time_limit;
+                const double temp = TEMP_START * pow(TEMP_END / TEMP_START, progress);
+                if (rng.next_double() < exp((new_score - cur_score) / temp)) {
+                    path = new_path;  // TODO: try swapping instead?
+                    n_used = new_result.second;
+                }
+            }
+        }
+
+        if (best_score < cur_score) {
+            best_score = cur_score;
+            best_path = cur_path;
+            cerr << "New best score: " << best_score << endl;
+        }
+    }
+
+    follow_path(best_path, actions);
     return actions;
 }
 
@@ -146,7 +210,7 @@ int main() {
 
     cerr << "Finished reading input." << endl;
 
-    const vector<Action> answer = follow_path(PATH);
+    const vector<Action> answer = simulated_annealing(5, 10s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
