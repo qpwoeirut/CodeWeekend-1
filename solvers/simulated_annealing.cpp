@@ -290,7 +290,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(5, 10s);
+    const vector<Action> answer = simulated_annealing(5, 140s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
