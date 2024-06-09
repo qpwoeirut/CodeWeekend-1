@@ -74,21 +74,35 @@ void calculate_dist() {
     }
 }
 
+int calculate_fatigue(const bitset<N>& killed, const int x, const int y) {
+    int fatigue = 0;
+    for (int i=0; i<game.num_monsters; ++i) {
+        if (!killed[i] && square(monster[i].x - x) + square(monster[i].y - y) <= square(monster[i].range)) fatigue += monster[i].attack;
+    }
+    return fatigue;
+}
+
 pii calculate_order_score(const array<int, N>& order) {
     hero.reset();
+    bitset<N> killed;
 
     int x = game.start_x, y = game.start_y;
     int turns = 0;
     int gold = 0;
+    int fatigue = 0;
     int i = 0;
     while (i < game.num_monsters) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
-            turns += (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
+            const int added_turns = (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
+            fatigue += (added_turns - 1) * calculate_fatigue(killed, x, y);
+            turns += added_turns;
             if (turns > game.num_turns) return pii(gold, game.num_monsters - i);
 
-            gold += monster[order[i]].gold;
+            gold += 1000 * monster[order[i]].gold / (1000 + fatigue);
             hero.add_exp(monster[order[i]].exp);
+            killed[order[i]] = true;
+            fatigue += calculate_fatigue(killed, x, y);
             ++i;
             continue;
         }
@@ -116,6 +130,7 @@ pii calculate_order_score(const array<int, N>& order) {
         x += best.second;
         y += best.first;
         ++turns;
+        fatigue += calculate_fatigue(killed, x, y);
 
         if (turns >= game.num_turns) return pii(gold, game.num_monsters - i);
     }
@@ -124,22 +139,28 @@ pii calculate_order_score(const array<int, N>& order) {
 
 vector<Action> recover_actions(const array<int, N>& order) {
     hero.reset();
+    bitset<N> killed;
 
     int x = game.start_x, y = game.start_y;
     vector<Action> actions;
     int gold = 0;
+    int fatigue = 0;
     int i = 0;
     while (i < game.num_monsters) {
         const int dx = monster[order[i]].x - x, dy = monster[order[i]].y - y;
         if (dx * dx + dy * dy <= hero.get_range() * hero.get_range()) {
-            for (int p=0; p<monster[order[i]].hp; p += hero.get_power()) actions.emplace_back("attack", monster[order[i]].id);
+            const int added_turns = (monster[order[i]].hp + hero.get_power() - 1) / hero.get_power();
+            fatigue += (added_turns - 1) * calculate_fatigue(killed, x, y);
+            for (int p=0; p<added_turns; ++p) actions.emplace_back("attack", monster[order[i]].id);
             if ((int)actions.size() >= game.num_turns) {
                 while ((int)actions.size() > game.num_turns) actions.pop_back();
                 return actions;
             }
 
-            gold += monster[order[i]].gold;
+            gold += 1000 * monster[order[i]].gold / (1000 + fatigue);
             hero.add_exp(monster[order[i]].exp);
+            killed[order[i]] = true;
+            fatigue += calculate_fatigue(killed, x, y);
             ++i;
             continue;
         }
@@ -269,7 +290,7 @@ int main() {
 
     cerr << "Finished calculating dist." << endl;
 
-    const vector<Action> answer = simulated_annealing(12, 475s);
+    const vector<Action> answer = simulated_annealing(5, 10s);
     for (const Action& action: answer) {
         cout << action << '\n';
     }
